@@ -45,7 +45,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="src/plugins/dropzone/src/dropzone.css"
+      href="src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
 
@@ -144,7 +149,18 @@
           </form>
         </div>
       </div>
+
       <div class="header-right">
+        <div class="dashboard-setting user-notification">
+          <div>
+            <input
+              type="button"
+              value="New Request"
+              class="btn btn-danger"
+              href="request.html"
+            />
+          </div>
+        </div>
         <div class="dashboard-setting user-notification">
           <div class="dropdown">
             <a
@@ -464,11 +480,11 @@
             <li class="dropdown">
               <a href="javascript:;" class="dropdown-toggle">
                 <span class="micon dw dw-house-1"></span
-                ><span class="mtext">Home</span>
+                ><span class="mtext">Dashboard</span>
               </a>
               <ul class="submenu">
                 <li><a href="index.html">Dashboard style 1</a></li>
-                <li><a href="index2.html">Dashboard style 2</a></li>
+                <!-- <li><a href="index2.html">Dashboard style 2</a></li> -->
               </ul>
             </li>
             <li class="dropdown">
@@ -539,30 +555,6 @@
                 <li><a href="ionicons.html">Ionicons Icons</a></li>
                 <li><a href="themify.html">Themify Icons</a></li>
                 <li><a href="custom-icon.html">Custom Icons</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:;" class="dropdown-toggle">
-                <span class="micon dw dw-analytics-21"></span
-                ><span class="mtext">Charts</span>
-              </a>
-              <ul class="submenu">
-                <li><a href="highchart.html">Highchart</a></li>
-                <li><a href="knob-chart.html">jQuery Knob</a></li>
-                <li><a href="jvectormap.html">jvectormap</a></li>
-                <li><a href="apexcharts.html">Apexcharts</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:;" class="dropdown-toggle">
-                <span class="micon dw dw-right-arrow1"></span
-                ><span class="mtext">Additional Pages</span>
-              </a>
-              <ul class="submenu">
-                <li><a href="video-player.html">Video Player</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="forgot-password.html">Forgot Password</a></li>
-                <li><a href="reset-password.html">Reset Password</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -679,26 +671,229 @@
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
-      <div class="pd-ltr-20 xs-pd-20-10">
-        <div class="min-height-200px">
-          <div class="pd-20 card-box mb-30">
-            <div class="clearfix mb-20">
-              <div class="pull-left">
-                <h4 class="text-blue h4">Dropzone</h4>
+      <div class="card-box mb-30">
+        <div class="pd-20">
+          <h4 class="text-blue h4">Brands</h4>
+          <a
+            type="button"
+            href="#"
+            data-toggle="modal"
+            data-target="#addNewModal"
+            class="btn btn-primary"
+            style="float: right"
+            >Add New</a
+          >
+        </div>
+        <!-- create colloabrator modal-->
+        <div
+          class="modal fade bs-example-modal-lg"
+          id="addNewModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myLargeModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-lg modal-dialog-centered"
+            style="width: 1200"
+          >
+            <div class="modal-content">
+              <div class="pd-20 modal-body mb-25">
+                <div class="tab">
+                  <ul class="nav nav-tabs customtab" role="tablist">
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active"
+                        data-toggle="tab"
+                        href="#viewAllBrands"
+                        role="tab"
+                        aria-selected="true"
+                        >View All Brands</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        data-toggle="tab"
+                        href="#brandLift"
+                        role="tab"
+                        aria-selected="false"
+                        >Brand Lift</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        data-toggle="tab"
+                        href="#approvedRequest"
+                        role="tab"
+                        aria-selected="false"
+                        >Approved Requests</a
+                      >
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div
+                      class="tab-pane fade show active"
+                      id="viewAllBrands"
+                      role="tabpanel"
+                    >
+                      <div class="pd-20">123</div>
+                    </div>
+                    <div class="tab-pane fade" id="brandLift" role="tabpanel">
+                      <div class="pd-20">
+                        <div class="card-box mb-30">
+                          <div class="row">
+                            <div
+                              class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30"
+                            >
+                              <div
+                                class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
+                              >
+                                <h7 class="h6 text-blue mb-20">Brand Name</h7>
+                                <input
+                                  class="form-control"
+                                  placeholder="Self Employed & Small Business Owners"
+                                />
+                              </div>
+                              <div
+                                class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
+                              >
+                                <h7 class="h6 text-blue mb-20"
+                                  >Brand Industry</h7
+                                >
+                                <input
+                                  class="form-control"
+                                  placeholder="Business Services"
+                                />
+                              </div>
+                              <div
+                                class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
+                              >
+                                <h7 class="h6 text-blue mb-20"
+                                  >Brand Audience</h7
+                                >
+                                <input
+                                  class="form-control"
+                                  placeholder="Enter main web address"
+                                />
+                              </div>
+                              <div
+                                class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
+                              >
+                                <h7 class="h6 text-blue mb-20">Web Address</h7>
+                                <input
+                                  class="form-control"
+                                  placeholder="Enter main web address"
+                                />
+                              </div>
+                              <div
+                                class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
+                              >
+                                <h7 class="h6 text-blue mb-20">Color Codes</h7>
+                                <input
+                                  class="form-control"
+                                  placeholder="Type a hex color code or choose"
+                                />
+                              </div>
+                              <div
+                                class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
+                              >
+                                <h7 class="h6 text-blue mb-20">Fonts</h7>
+                                <input
+                                  class="form-control"
+                                  placeholder="Type a font name"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30"
+                            >
+                              <h7 class="h6 text-blue mb-20">Description</h7>
+                              <textarea
+                                class="textarea_editor form-control border-radius-0"
+                                placeholder="Enter text ..."
+                              ></textarea>
+                              <div class="min-height-200px">
+                                <div class="pd-20 card-box mb-30">
+                                  <div class="clearfix mb-20">
+                                    <div class="pull-left">
+                                      <h7 class="text-blue h4">Dropzone</h7>
+                                    </div>
+                                  </div>
+                                  <form
+                                    class="dropzone"
+                                    action="#"
+                                    id="my-awesome-dropzone"
+                                  >
+                                    <div class="fallback">
+                                      <input type="file" name="file" />
+                                    </div>
+                                  </form>
+                                  <div
+                                    style="
+                                      display: flex;
+                                      justify-content: space-between;
+                                    "
+                                    class="mb-30"
+                                  >
+                                    <input
+                                      class="form-control"
+                                      placeholder="Enter a Link"
+                                    /><button class="btn btn-danger btn-sm">
+                                      ADD
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div
+                              class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="tab-pane fade show active"
+                      id="approvedRequest"
+                      role="tabpanel"
+                    >
+                      <div class="pd-20">123</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <form class="dropzone" action="#" id="my-awesome-dropzone">
-              <div class="fallback">
-                <input type="file" name="file" />
-              </div>
-            </form>
           </div>
         </div>
-        <div class="footer-wrap pd-20 mb-20 card-box">
-          DeskApp - Bootstrap 4 Admin Template By
-          <a href="https://github.com/dropways" target="_blank"
-            >Ankit Hingarajiya</a
-          >
+        <!--create collobrate modal end-->
+        <div class="pb-20">
+          <table class="data-table table hover multiple-select-row nowrap">
+            <thead>
+              <tr>
+                <th class="table-plus datatable-nosort">Brand Name</th>
+                <th>Industry</th>
+                <th>Web Address</th>
+                <th>Created On</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-plus">Gloria F. Mead</td>
+                <td>25</td>
+                <td>Sagittarius</td>
+                <td>2829 Trainer Avenue Peoria, IL 61602</td>
+                <td>
+                  <a href="#" class="pd-10"
+                    ><i class="icon-copy fi-trash"></i
+                  ></a>
+                  <a href="#"><i class="icon-copy fi-pencil"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -707,19 +902,23 @@
     <script src="vendors/scripts/script.min.js"></script>
     <script src="vendors/scripts/process.js"></script>
     <script src="vendors/scripts/layout-settings.js"></script>
-    <script src="src/plugins/dropzone/src/dropzone.js"></script>
-    <script>
-      Dropzone.autoDiscover = false;
-      $('.dropzone').dropzone({
-        addRemoveLinks: true,
-        removedfile: function (file) {
-          var name = file.name;
-          var _ref;
-          return (_ref = file.previewElement) != null
-            ? _ref.parentNode.removeChild(file.previewElement)
-            : void 0;
-        },
-      });
-    </script>
+    <!-- <script src="src/plugins/apexcharts/apexcharts.min.js"></script> -->
+    <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="vendors/scripts/dashboard.js"></script>
   </body>
 </html>
+<script>
+  $.ajax({
+    url: 'http://localhost:3000',
+    method: 'POST',
+    contentType: 'application/json',
+    success: function (response) {
+      var tem_name = response.tem_name;
+      var tem_status = response.tem_status;
+      var tem_due_on = response.tem_due_on;
+    },
+  });
+</script>

@@ -45,7 +45,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="src/plugins/dropzone/src/dropzone.css"
+      href="src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
 
@@ -144,7 +149,18 @@
           </form>
         </div>
       </div>
+
       <div class="header-right">
+        <div class="dashboard-setting user-notification">
+          <div>
+            <input
+              type="button"
+              value="New Request"
+              class="btn btn-danger"
+              href="request.html"
+            />
+          </div>
+        </div>
         <div class="dashboard-setting user-notification">
           <div class="dropdown">
             <a
@@ -464,11 +480,11 @@
             <li class="dropdown">
               <a href="javascript:;" class="dropdown-toggle">
                 <span class="micon dw dw-house-1"></span
-                ><span class="mtext">Home</span>
+                ><span class="mtext">Dashboard</span>
               </a>
               <ul class="submenu">
                 <li><a href="index.html">Dashboard style 1</a></li>
-                <li><a href="index2.html">Dashboard style 2</a></li>
+                <!-- <li><a href="index2.html">Dashboard style 2</a></li> -->
               </ul>
             </li>
             <li class="dropdown">
@@ -539,30 +555,6 @@
                 <li><a href="ionicons.html">Ionicons Icons</a></li>
                 <li><a href="themify.html">Themify Icons</a></li>
                 <li><a href="custom-icon.html">Custom Icons</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:;" class="dropdown-toggle">
-                <span class="micon dw dw-analytics-21"></span
-                ><span class="mtext">Charts</span>
-              </a>
-              <ul class="submenu">
-                <li><a href="highchart.html">Highchart</a></li>
-                <li><a href="knob-chart.html">jQuery Knob</a></li>
-                <li><a href="jvectormap.html">jvectormap</a></li>
-                <li><a href="apexcharts.html">Apexcharts</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:;" class="dropdown-toggle">
-                <span class="micon dw dw-right-arrow1"></span
-                ><span class="mtext">Additional Pages</span>
-              </a>
-              <ul class="submenu">
-                <li><a href="video-player.html">Video Player</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="forgot-password.html">Forgot Password</a></li>
-                <li><a href="reset-password.html">Reset Password</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -679,26 +671,231 @@
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
-      <div class="pd-ltr-20 xs-pd-20-10">
-        <div class="min-height-200px">
-          <div class="pd-20 card-box mb-30">
-            <div class="clearfix mb-20">
-              <div class="pull-left">
-                <h4 class="text-blue h4">Dropzone</h4>
+      <div class="tab">
+        <ul class="nav nav-tabs customtab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              data-toggle="tab"
+              href="#viewAllRequests"
+              role="tab"
+              aria-selected="true"
+              >View All Requests</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="tab"
+              href="#requestDetails"
+              role="tab"
+              aria-selected="false"
+              >Request Details</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div
+            class="tab-pane fade show active"
+            id="viewAllRequests"
+            role="tabpanel"
+          >
+            <div class="pd-20">123</div>
+          </div>
+          <div class="tab-pane fade" id="requestDetails" role="tabpanel">
+            <div
+              class="pd-20"
+              style="display: flex; justify-content: space-betweena"
+            >
+              <div class="pd-ltr-20 xs-pd-20-10 col-lg-6 col-md-6 col-sm-12">
+                <div class="pd-20 card-box mb-30">
+                  <div>
+                    <form>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-3 col-form-label"
+                          >Request Name</label
+                        >
+                        <div class="col-sm-12 col-md-9">
+                          <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Text fonts"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-3 col-form-label"
+                          >Type of Design</label
+                        >
+                        <div class="col-sm-12 col-md-9">
+                          <select class="custom-select col-12">
+                            <option selected="">Other...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-3 col-form-label"
+                          >Priority</label
+                        >
+                        <div class="col-sm-12 col-md-9">
+                          <select class="custom-select col-12">
+                            <option selected="">Other...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">
+                          Choose a Brand</label
+                        >
+                        <label class="col-sm-12 col-md-1 col-form-label">
+                          <button class="btn btn-light" style="color: red">
+                            +
+                          </button></label
+                        >
+
+                        <div class="col-sm-12 col-md-9">
+                          <select class="custom-select col-12">
+                            <option selected="">Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                  <div>
+                    <form>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-3 col-form-label"
+                          >Due On</label
+                        >
+                        <div class="col-sm-12 col-md-9">
+                          <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Text fonts"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-3 col-form-label"
+                          >Assignee</label
+                        >
+                        <div class="col-sm-12 col-md-9">
+                          <select class="custom-select col-12">
+                            <option selected="">Other...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-md-3 col-form-label"
+                          >Status</label
+                        >
+                        <div class="col-sm-12 col-md-9">
+                          <select class="custom-select col-12">
+                            <option selected="">Other...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
+                    <h6 class="h6 text-blue">Request Description</h6>
+                    <textarea
+                      class="textarea_editor form-control border-radius-0"
+                      placeholder="Enter text ..."
+                    ></textarea>
+                  </div>
+                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
+                    <h6 class="h6 text-blue">Text for Design</h6>
+                    <textarea
+                      class="textarea_editor form-control border-radius-0"
+                      placeholder="Enter text ..."
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                  <div class="min-height-200px">
+                    <div class="pd-20 mb-30">
+                      <div class="clearfix mb-20">
+                        <div class="pull-left">
+                          <h4 class="text-blue h4">Dropzone</h4>
+                        </div>
+                      </div>
+                      <form
+                        class="dropzone"
+                        action="#"
+                        id="my-awesome-dropzone"
+                      >
+                        <div class="fallback">
+                          <input type="file" name="file" />
+                        </div>
+                      </form>
+                      <div
+                        style="display: flex; justify-content: space-between"
+                        class="mb-10"
+                      >
+                        <input
+                          class="form-control"
+                          placeholder="Enter a Link"
+                        /><button class="btn btn-danger btn-sm">ADD</button>
+                      </div>
+                      <div class="pd-10 mb-10">
+                        <button class="btn btn-outline-secondary pd-10">
+                          Download All
+                        </button>
+                        <button class="btn btn-outline-secondary pd-10">
+                          Download Selected
+                        </button>
+                      </div>
+                      <div class="pd-10 mb-10">
+                        <div class="row">
+                          <div class="col-lg-1 col-md-1">
+                            <input type="checkbox" />
+                          </div>
+                          <div class="col-lg-6 col-md-6"></div>
+                          <label>1234</label>
+                          <div class="col-lg-2 col-md-2"></div>
+                          <div class="col-lg-1 col-md-1">
+                            <a href="">
+                              <i class="icon-copy ion-archive"></i
+                            ></a>
+                          </div>
+                          <div class="col-lg-1 col-md-1">
+                            <a href=""><i class="icon-copy ion-trash-a"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pd-ltr-20 xs-pd-20-10 col-lg-6 col-md-6 col-sm-12">
+                <div class="pd-20 card-box mb-30"></div>
               </div>
             </div>
-            <form class="dropzone" action="#" id="my-awesome-dropzone">
-              <div class="fallback">
-                <input type="file" name="file" />
-              </div>
-            </form>
+            <div class="pd-20" style="text-align: right">
+              <button class="btn btn-secondary">Save As Draft</button>
+              <button class="btn btn-danger">Submit</button>
+            </div>
           </div>
-        </div>
-        <div class="footer-wrap pd-20 mb-20 card-box">
-          DeskApp - Bootstrap 4 Admin Template By
-          <a href="https://github.com/dropways" target="_blank"
-            >Ankit Hingarajiya</a
-          >
         </div>
       </div>
     </div>
@@ -707,19 +904,23 @@
     <script src="vendors/scripts/script.min.js"></script>
     <script src="vendors/scripts/process.js"></script>
     <script src="vendors/scripts/layout-settings.js"></script>
-    <script src="src/plugins/dropzone/src/dropzone.js"></script>
-    <script>
-      Dropzone.autoDiscover = false;
-      $('.dropzone').dropzone({
-        addRemoveLinks: true,
-        removedfile: function (file) {
-          var name = file.name;
-          var _ref;
-          return (_ref = file.previewElement) != null
-            ? _ref.parentNode.removeChild(file.previewElement)
-            : void 0;
-        },
-      });
-    </script>
+    <!-- <script src="src/plugins/apexcharts/apexcharts.min.js"></script> -->
+    <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="vendors/scripts/dashboard.js"></script>
   </body>
 </html>
+<script>
+  $.ajax({
+    url: 'http://localhost:3000',
+    method: 'POST',
+    contentType: 'application/json',
+    success: function (response) {
+      var tem_name = response.tem_name;
+      var tem_status = response.tem_status;
+      var tem_due_on = response.tem_due_on;
+    },
+  });
+</script>
