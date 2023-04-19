@@ -74,106 +74,123 @@
     </script>
   </head>
   <body>
-    <!-- <div class="">
-      <div class="-box">
-        <div class="loader-logo">
-          <img src="vendors/images/deskapp-logo.svg" alt="" />
-        </div>
-        <div class="loader-progress" id="progress_div">
-          <div class="bar" id="bar1"></div>
-        </div>
-        <div class="percent" id="percent1">0%</div>
-        <div class="loading-text">Loading...</div>
-      </div>
-    </div> -->
-
     <div class="header">
-      <div class="header-left">
-        <div class="menu-icon dw dw-menu"></div>
-        <div
-          class="search-toggle-icon dw dw-search2"
-          data-toggle="header_search"
-        ></div>
-        <div class="header-search">
-          <form>
-            <div class="form-group mb-0">
-              <i class="dw dw-search2 search-icon"></i>
-              <input
-                type="text"
-                class="form-control search-input"
-                placeholder="Search Here"
-              />
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle no-arrow"
-                  href="#"
-                  role="button"
-                  data-toggle="dropdown"
-                >
-                  <i class="ion-arrow-down-c"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label"
-                      >From</label
-                    >
-                    <div class="col-sm-12 col-md-10">
-                      <input
-                        class="form-control form-control-sm form-control-line"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">To</label>
-                    <div class="col-sm-12 col-md-10">
-                      <input
-                        class="form-control form-control-sm form-control-line"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label"
-                      >Subject</label
-                    >
-                    <div class="col-sm-12 col-md-10">
-                      <input
-                        class="form-control form-control-sm form-control-line"
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <button class="btn btn-primary">Search</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+      <div class="header-left">  
       </div>
-
       <div class="header-right">
-        <div class="dashboard-setting user-notification">
+        <div class="dashboard-setting user-notification" style="margin-top: -8px;">
           <div>
             <input
               type="button"
               value="New Request"
               class="btn btn-primary"
-              href="request.html"
+              href="./request.html"
             />
           </div>
         </div>
-        <div class="dashboard-setting user-notification">
+        <div class="user-notification">
           <div class="dropdown">
             <a
               class="dropdown-toggle no-arrow"
-              href="javascript:;"
-              data-toggle="right-sidebar"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
             >
-              <i class="dw dw-settings2"></i>
+              <i class="dw dw-search2 search-icon"></i>
             </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="header-search">
+                <form>
+                  <div class="form-group mb-0">
+                    <div class="mb-2">Press Enter Key to search</div>
+                    <input
+                      type="text"
+                      class="form-control search-input"
+                      placeholder="Search Here"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-notification">
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle no-arrow"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+            >
+              <i class="icon-copy dw dw-email"></i>
+              <span class="badge notification-active"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="notification-list mx-h-350 customscroll">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/img.jpg" alt="" />
+                      <h3>John Doe</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/photo1.jpg" alt="" />
+                      <h3>Lea R. Frith</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/photo2.jpg" alt="" />
+                      <h3>Erik L. Richards</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/photo3.jpg" alt="" />
+                      <h3>John Doe</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/photo4.jpg" alt="" />
+                      <h3>Renee I. Hansen</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="vendors/images/img.jpg" alt="" />
+                      <h3>Vicki M. Coleman</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed...
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
         <div class="user-notification">
@@ -623,21 +640,19 @@
                   class="pb-20"
                   style="display: flex; justify-content: space-between"
                 >
-                  <div class="html-editor pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                  <div id="requestdescription" class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
                     <h6 class="h6 text-blue">Request Description</h6>
                     <textarea
-                      id="e2"
                       class="textarea_editor form-control border-radius-0"
                       placeholder="Enter text ..."
                     ></textarea>
                   </div>
-                  <div class="html-editor pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h6 class="h6 text-blue">Request Description</h6>
-                    <textarea
-                      id="e1"
-                      class="textarea_editor form-control border-radius-0"
-                      placeholder="Enter text ..."
-                    ></textarea>
+                  <div id="text4design" class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                    <h6 class="h6 text-blue">Text for Design</h6>
+                    <ul class="wysihtml5-toolbar">
+                      <li class="dropdown"><a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-font"></i>&nbsp;<span class="current-font">Normal text</span>&nbsp;<b class="caret"></b></a><ul class="dropdown-menu"><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="div" href="javascript:;" unselectable="on">Normal text</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" href="javascript:;" unselectable="on">Heading 1</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" href="javascript:;" unselectable="on">Heading 2</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3" href="javascript:;" unselectable="on">Heading 3</a></li></ul></li><li><div class="btn-group"><a class="btn" data-wysihtml5-command="bold" title="CTRL+B" href="javascript:;" unselectable="on">Bold</a><a class="btn" data-wysihtml5-command="italic" title="CTRL+I" href="javascript:;" unselectable="on">Italic</a><a class="btn" data-wysihtml5-command="underline" title="CTRL+U" href="javascript:;" unselectable="on">Underline</a></div></li><li><div class="btn-group"><a class="btn" data-wysihtml5-command="insertUnorderedList" title="Unordered list" href="javascript:;" unselectable="on"><i class="fa fa-list"></i></a><a class="btn" data-wysihtml5-command="insertOrderedList" title="Ordered list" href="javascript:;" unselectable="on"><i class="fa fa-th-list"></i></a><a class="btn" data-wysihtml5-command="Outdent" title="Outdent" href="javascript:;" unselectable="on"><i class="fa fa-outdent"></i></a><a class="btn" data-wysihtml5-command="Indent" title="Indent" href="javascript:;" unselectable="on"><i class="fa fa-indent"></i></a></div></li><li><div class="btn-group"><a class="btn" data-wysihtml5-action="change_view" title="Edit HTML" href="javascript:;" unselectable="on"><i class="fa fa-pencil"></i></a></div></li><li><div class="bootstrap-wysihtml5-insert-link-modal modal fade bs-example-modal-lg"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="close" data-dismiss="modal"></a><h3>Insert link</h3></div><div class="modal-body"><div class="form-group"><input value="http://" class="bootstrap-wysihtml5-insert-link-url form-control" type="text"></div></div><div class="modal-footer"><a href="#" class="btn btn-inverse" data-dismiss="modal">Cancel</a><a href="#" class="btn btn-primary" data-dismiss="modal">Insert link</a></div></div></div></div><a class="btn" data-wysihtml5-command="createLink" title="Insert link" href="javascript:;" unselectable="on"><i class="fa fa-link"></i></a></li><li><div class="bootstrap-wysihtml5-insert-image-modal modal fade bs-example-modal-lg" style="display: none;" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="close" data-dismiss="modal"></a><h3>Insert image</h3></div><div class="modal-body"><div class="form-group"><input value="http://" class="bootstrap-wysihtml5-insert-image-url  m-wrap large form-control" type="text"></div></div><div class="modal-footer"><a href="#" class="btn" data-dismiss="modal">Cancel</a><a href="#" class="btn  green btn-primary" data-dismiss="modal">Insert image</a></div></div></div></div><a class="btn" data-wysihtml5-command="insertImage" title="Insert image" href="javascript:;" unselectable="on"><i class="fa fa-image "></i></a></li>
+                    </ul>
+                    <textarea class="textarea_editor form-control border-radius-0" placeholder="Enter text ..."></textarea>
                   </div>
                 </div>
               </div>

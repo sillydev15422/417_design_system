@@ -52,6 +52,7 @@
       type="text/css"
       href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
     <link
       rel="stylesheet"
       type="text/css"
@@ -605,8 +606,8 @@
                       <div class="pd-20">123</div>
                     </div>
                     <div class="tab-pane fade" id="brandLift" role="tabpanel">
-                      <div class="pd-20">
-                        <div class="card-box mb-30">
+                      <div class="pd-0">
+                        <div class="mb-30">
                           <div class="row">
                             <div
                               class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30"
@@ -655,10 +656,7 @@
                                 class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
                               >
                                 <h7 class="h6 text-blue mb-20">Color Codes</h7>
-                                <input
-                                  class="form-control"
-                                  placeholder="Type a hex color code or choose"
-                                />
+                                <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput">
                               </div>
                               <div
                                 class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30"
@@ -724,7 +722,6 @@
                       id="approvedRequest"
                       role="tabpanel"
                     >
-                      <div class="pd-20">123</div>
                     </div>
                   </div>
                 </div>
@@ -774,6 +771,7 @@
     <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="vendors/scripts/dashboard.js"></script>
+    <script src="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
   </body>
 </html>
 <script>
