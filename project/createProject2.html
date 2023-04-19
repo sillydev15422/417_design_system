@@ -18,6 +18,11 @@
       href="vendors/images/favicon-32x32.png"
     />
     <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/dropzone/src/dropzone.css"
+    />
+    <link
       rel="icon"
       type="image/png"
       sizes="16x16"
@@ -53,7 +58,7 @@
       href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
-
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -68,6 +73,17 @@
 
       gtag('config', 'UA-119386393-1');
     </script>
+    <style>
+      .form-group>label {
+        font-size: 16px;
+      }
+
+      .text-flow {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    </style>
   </head>
   <body>
     <div class="">
@@ -549,7 +565,7 @@
           data-target="#markAsComp"
           class="btn btn-primary"
         >
-          <i class="icon-copy ion-android-done"></i>Mark as Complete
+          <i class="icon-copy ion-android-done"></i>&nbsp;Mark as Complete
         </a>
       </div>
       <!--add Mark complete button Modal-->
@@ -652,8 +668,8 @@
           </div>
           <div class="tab-pane fade" id="requestDetails" role="tabpanel">
             <div
-              class="pd-20"
-              style="display: flex; justify-content: space-betweena"
+              class="pd-20 row"
+              style="display: flex;"
             >
               <div class="pd-ltr-20 xs-pd-20-10 col-lg-6 col-md-6 col-sm-12">
                 <div class="pd-20 card-box mb-30">
@@ -698,16 +714,11 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-12 col-md-2 col-form-label">
+                        <label class="col-sm-12 col-md-3 col-form-label">
                           Choose a Brand</label
                         >
-                        <label class="col-sm-12 col-md-1 col-form-label">
-                          <button class="btn btn-light" style="color: red">
-                            +
-                          </button></label
-                        >
 
-                        <div class="col-sm-12 col-md-9">
+                        <div class="col-sm-12 col-md-8">
                           <select class="custom-select col-12">
                             <option selected="">Choose...</option>
                             <option value="1">One</option>
@@ -715,6 +726,11 @@
                             <option value="3">Three</option>
                           </select>
                         </div>
+                        <label class="col-sm-12 col-md-1 col-form-label">
+                          <button class="btn btn-light" style="color: red;margin-top: -8px; margin-left: -50%;font-size: 20px;">
+                            +
+                          </button></label
+                        >
                       </div>
                     </form>
                   </div>
@@ -798,12 +814,12 @@
                       </form>
                       <div
                         style="display: flex; justify-content: space-between"
-                        class="mb-10"
+                        class="mb-10 mt-2"
                       >
                         <input
                           class="form-control"
                           placeholder="Enter a Link"
-                        /><button class="btn btn-danger btn-sm">ADD</button>
+                        /><button class="btn btn-danger btn-sm">&nbsp;+&nbsp;</button>
                       </div>
                       <div class="pd-10 mb-10">
                         <button class="btn btn-outline-secondary pd-10">
@@ -815,20 +831,67 @@
                       </div>
                       <div class="pd-10 mb-10">
                         <div class="row">
-                          <div class="col-lg-1 col-md-1">
-                            <input type="checkbox" />
-                          </div>
-                          <div class="col-lg-6 col-md-6"></div>
-                          <label>1234</label>
-                          <div class="col-lg-2 col-md-2"></div>
-                          <div class="col-lg-1 col-md-1">
-                            <a href="">
-                              <i class="icon-copy ion-archive"></i
-                            ></a>
-                          </div>
-                          <div class="col-lg-1 col-md-1">
-                            <a href=""><i class="icon-copy ion-trash-a"></i></a>
-                          </div>
+                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
+                          <div class="col-md-7 text-flow col-sm-7">f763e780-7818-11eb-8384-18b127135423.png</div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
+                          <div class="col-md-7  col-sm-7 text-flow">f763e780-7818-11eb-8384-18b127135423.png</div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
+                          <div class="col-md-7 col-sm-7 text-flow">f763e780-7818-11eb-8384-18b127135423.png</div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pd-20 card-box mb-30">
+                  <div class="min-height-200px">
+                    <div class="pd-20 mb-30">
+                      <div class="clearfix mb-20">
+                        <div class="pull-left">
+                          <h4 class="text-blue h4">Dropzone</h4>
+                        </div>
+                      </div>
+                      <form
+                        class="dropzone"
+                        action="#"
+                        id="my-awesome-dropzone"
+                      >
+                        <div class="fallback">
+                          <input type="file" name="file" />
+                        </div>
+                      </form>
+                      <div
+                        style="display: flex; justify-content: space-between"
+                        class="mb-10 mt-2"
+                      >
+                        <input
+                          class="form-control"
+                          placeholder="Enter a Link"
+                        /><button class="btn btn-danger btn-sm">&nbsp;+&nbsp;</button>
+                      </div>
+                      <div class="pd-10 mb-10">
+                        <button class="btn btn-outline-secondary pd-10 col-sm-12 col-md-6 col-lg-4">
+                          Download All
+                        </button>
+                        <button class="btn btn-outline-secondary pd-10 col-sm-12 col-md-6 col-lg-4">
+                          Download Selected
+                        </button>
+                      </div>
+                      <div class="pd-10 mb-10">
+                        <div class="row">
+                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
+                          <div class="col-md-7 text-flow col-sm-7">f763e780-7818-11eb-8384-18b127135423.png</div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
+                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
                         </div>
                       </div>
                     </div>
@@ -836,12 +899,62 @@
                 </div>
               </div>
               <div class="pd-ltr-20 xs-pd-20-10 col-lg-6 col-md-6 col-sm-12">
-                <div class="pd-20 card-box mb-30"></div>
+                <div class="pd-20 card-box mb-30 blog-list">
+                  <ul>
+                    <li>
+											<div class="row no-gutters">
+												<div class="col-lg-4 col-md-12 col-sm-12">
+													<div class="blog-img">
+														<img src="vendors/images/1.jpg" alt="" class="bg_img">
+													</div>
+												</div>
+												<div class="col-lg-8 col-md-12 col-sm-12">
+													<div class="blog-caption">
+														<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+														<div class="blog-by">
+															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+															<div class="pt-10">
+																<a href="#" class="btn btn-outline-primary">Read More</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+                    <li>
+											<div class="row no-gutters">
+												<div class="col-lg-4 col-md-12 col-sm-12">
+													<div class="blog-img">
+														<img src="vendors/images/1.jpg" alt="" class="bg_img">
+													</div>
+												</div>
+												<div class="col-lg-8 col-md-12 col-sm-12">
+													<div class="blog-caption">
+														<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+														<div class="blog-by">
+															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+															<div class="pt-10">
+																<a href="#" class="btn btn-outline-primary">Read More</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+                    <li>
+                      <div class="chat-footer">
+                        <div class="file-upload"><a href="#"><i class="fa fa-paperclip"></i></a></div>
+                        <div class="chat_text_area">
+                          <textarea placeholder="Type your message…"></textarea>
+                        </div>
+                        <div class="chat_send">
+                          <button class="btn btn-link" type="submit"><i class="icon-copy ion-paper-airplane"></i></button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div class="pd-20" style="text-align: right">
-              <button class="btn btn-secondary">Save As Draft</button>
-              <button class="btn btn-danger">Submit</button>
             </div>
           </div>
         </div>
@@ -858,6 +971,7 @@
     <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="vendors/scripts/dashboard.js"></script>
+    <script src="src/plugins/dropzone/src/dropzone.js"></script>
   </body>
 </html>
 <script>
