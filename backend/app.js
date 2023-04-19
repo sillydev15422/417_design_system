@@ -47,15 +47,15 @@ app.use(webRoutes);
 app.use(apiRoutes);
 
  app.use((req,resp,next) => {
-    // resp.status(404).sendFile(path.join(__dirname,'views','errors','404.html'));
-    resp.status(404).render('errors/404');
+    resp.status(404).sendFile(path.join(__dirname,'resource/views/power/404.html'));
+    //resp.status(404).render('errors/404');
  });
 
  app.use((error,req,resp,next) => {
-    // resp.status(404).sendFile(path.join(__dirname,'views','errors','404.html'));
-    resp.status(500).render('errors/500',{
-        error: error
-    });
+    resp.status(500).sendFile(path.join(__dirname,'resource/views/power/500.html'));
+    // resp.status(500).render('errors/500',{
+    //     error: error
+    // });
  });
  
 app.listen(8000);

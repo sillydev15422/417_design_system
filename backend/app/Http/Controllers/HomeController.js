@@ -3,5 +3,5 @@ exports.home = (req, resp, next) =>{
 }
 
 exports.welcome = (req, resp, next) => {
-   return resp.render('front-end/layout/index')
+   return resp.render("power/index");
 }

@@ -70,31 +70,16 @@
     </script>
   </head>
   <body>
-    <div class="">
-      <div class="-box">
-        <div class="loader-logo">
-          <img src="vendors/images/deskapp-logo.svg" alt="" />
-        </div>
-        <div class="loader-progress" id="progress_div">
-          <div class="bar" id="bar1"></div>
-        </div>
-        <div class="percent" id="percent1">0%</div>
-        <div class="loading-text">Loading...</div>
-      </div>
-    </div>
-
     <div class="header">
       <div class="header-left">  
+        <div class="menu-icon dw dw-menu"></div>
       </div>
       <div class="header-right">
         <div class="dashboard-setting user-notification" style="margin-top: -8px;">
           <div>
-            <input
-              type="button"
-              value="New Request"
-              class="btn btn-primary"
-              href="./request.html"
-            />
+            <a href="./request.html">
+              <div class="btn btn-primary">New Request</div>
+            </a>
           </div>
         </div>
         <div class="user-notification">
@@ -312,6 +297,11 @@
             </div>
           </div>
         </div>
+        <div class="github-link">
+          <a href="https://github.com/dropways/deskapp" target="_blank"
+            ><img src="vendors/images/github.svg" alt=""
+          /></a>
+        </div>
       </div>
     </div>
 
@@ -515,10 +505,10 @@
               </a>
               <ul class="submenu">
                 <li><a href="request.html">Create</a></li>
-                <li><a href="create-request.html">Open</a></li>
-                <li><a href="create-request.html">Pending Review</a></li>
-                <li><a href="create-request.html">Completed</a></li>
-                <li><a href="create-request.html">Drafts</a></li>
+                <li><a href="request-details.html">Open</a></li>
+                <li><a href="request-details.html">Pending Review</a></li>
+                <li><a href="request-details.html">Completed</a></li>
+                <li><a href="request-details.html">Drafts</a></li>
               </ul>
             </li>
             <li>
@@ -564,59 +554,96 @@
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
-      <h3 style="text-align: center; margin-top: 100px; margin-bottom: 10px">
-        Start a New Request:
-      </h3>
-      <div class="row clearfix">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-30">
-          <div class="card card-box">
-            <img
-              class="card-img-top"
-              src="vendors/images/img2.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body" style="text-align: center">
-              <a href="#" class="btn btn-primary">+ Start Your New Request</a>
+      <div class="pd-ltr-20">
+        <div class="row">
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="widget-data">
+                  <div class="weight-600 font-14" style="text-align: left">
+                    Contact
+                  </div>
+                  <div class="h4" style="text-align: left">
+                    <h2>2020</h2>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <h5 class="card-title weight-500 mt-15" style="text-align: center">
-            Dapulicate Past Request
-          </h5>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-30">
-          <div class="card card-box">
-            <img
-              class="card-img-top"
-              src="vendors/images/img3.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body" style="text-align: center">
-              <a href="#" class="btn btn-primary" style="text-align: center"
-                >+ Start Your New Request</a
-              >
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="widget-data">
+                  <div class="weight-600 font-14" style="text-align: left">
+                    Deals
+                  </div>
+                  <div class="h4" style="text-align: left">
+                    <h2>400</h2>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <h5 class="card-title weight-500 mt-15" style="text-align: center">
-            Dapulicate Past Request
-          </h5>
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="widget-data">
+                  <div class="weight-600 font-14" style="text-align: left">
+                    Campaign
+                  </div>
+                  <div class="h4" style="text-align: left">
+                    <h2>350</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-xl-6 mb-30">
+            <div class="card-box height-100-p pd-20">
+              <h2 class="h4 mb-20">Open Graphic Request</h2>
 
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-30">
-          <div class="card card-box">
-            <img
-              class="card-img-top"
-              src="vendors/images/img3.jpg"
-              alt="Card image cap"
-            />
-            <div class="card-body" style="text-align: center">
-              <a href="#" class="btn btn-primary" style="text-align: center"
-                >+ Start Your New Request</a
-              >
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <h5 class="card-title weight-500 mt-15" style="text-align: center">
-            Dapulicate Past Request
-          </h5>
+          <div class="col-xl-6 mb-30">
+            <div class="card-box height-100-p pd-20">
+              <h2 class="h4 mb-20">Open Video Requests</h2>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
