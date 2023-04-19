@@ -12,10 +12,10 @@ const brandController = require('../app/Http/Controllers/Admin/Brand/BrandContro
 
 const route = express.Router();
 
-route.get("/request", isAuth, reqController.index);
-route.get('/request/create', isAuth, reqController.create);
+route.get("/request", reqController.index);
+route.get('/createrequest', reqController.create);
 route.post('/request/update/:id',isAuth,reqController.update);
-route.get('/request/edit/:id',isAuth,reqController.edit);
+route.get('/editrequest/:id', reqController.edit);
 route.post('/request/delete/:id',isAuth,reqController.delete);
 route.post('/request/store',isAuth ,reqController.store);
 

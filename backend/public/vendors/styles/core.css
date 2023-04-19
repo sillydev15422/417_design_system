@@ -6935,6 +6935,11 @@ a.close.disabled {
   }
 }
 
+@media (min-width: 768px) {
+  .modal-lg,
+  .modal-xl {
+    max-width: 700px; } }
+    
 @media (min-width: 1200px) {
   .modal-xl {
     max-width: 1140px;

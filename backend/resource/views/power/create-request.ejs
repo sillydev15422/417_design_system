@@ -53,7 +53,11 @@
       href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
-
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/dropzone/src/dropzone.css"
+    />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -70,31 +74,16 @@
     </script>
   </head>
   <body>
-    <div class="">
-      <div class="-box">
-        <div class="loader-logo">
-          <img src="vendors/images/deskapp-logo.svg" alt="" />
-        </div>
-        <div class="loader-progress" id="progress_div">
-          <div class="bar" id="bar1"></div>
-        </div>
-        <div class="percent" id="percent1">0%</div>
-        <div class="loading-text">Loading...</div>
-      </div>
-    </div>
-
     <div class="header">
-      <div class="header-left">  
+      <div class="header-left">
+        <div class="menu-icon dw dw-menu"></div> 
       </div>
       <div class="header-right">
         <div class="dashboard-setting user-notification" style="margin-top: -8px;">
           <div>
-            <input
-              type="button"
-              value="New Request"
-              class="btn btn-primary"
-              href="./request.html"
-            />
+            <a href="./request/create">
+              <div class="btn btn-primary">New Request</div>
+            </a>
           </div>
         </div>
         <div class="user-notification">
@@ -312,11 +301,6 @@
             </div>
           </div>
         </div>
-        <div class="github-link">
-          <a href="https://github.com/dropways/deskapp" target="_blank"
-            ><img src="vendors/images/github.svg" alt=""
-          /></a>
-        </div>
       </div>
     </div>
 
@@ -519,11 +503,11 @@
                 ><span class="mtext">Requests</span>
               </a>
               <ul class="submenu">
-                <li><a href="request.html">Create</a></li>
-                <li><a href="create-request.html">Open</a></li>
-                <li><a href="create-request.html">Pending Review</a></li>
-                <li><a href="create-request.html">Completed</a></li>
-                <li><a href="create-request.html">Drafts</a></li>
+                <li><a href="request/create">Create</a></li>
+                <li><a href="request-details.html">Open</a></li>
+                <li><a href="request-details.html">Pending Review</a></li>
+                <li><a href="request-details.html">Completed</a></li>
+                <li><a href="request-details.html">Drafts</a></li>
               </ul>
             </li>
             <li>
@@ -568,111 +552,230 @@
     </div>
     <div class="mobile-menu-overlay"></div>
 
-    <div class="main-container">
-      <div class="pd-ltr-20">
-        <div class="row">
-          <div class="col-xl-4 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="widget-data">
-                  <div class="weight-600 font-14" style="text-align: left">
-                    Contact
+    <div class="main-container" style="padding-bottom: 100px;">
+      <div class="tab">
+        <ul class="nav nav-tabs customtab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="tab"
+              href="#viewAllRequests"
+              role="tab"
+              aria-selected="false"
+              >View All Requests</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              data-toggle="tab"
+              href="#requestDetails"
+              role="tab"
+              aria-selected="true"
+              >Create Request</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div
+            class="tab-pane fade"
+            id="viewAllRequests"
+            role="tabpanel"
+          >
+            <div class="pd-20">123</div>
+          </div>
+          <div class="tab-pane fade show active" id="requestDetails" role="tabpanel">
+            <div class="pd-20">
+              <div class="card-box mb-30">
+                <div
+                  class="pb-20"
+                  style="display: flex; justify-content: space-betweena"
+                >
+                  <div class="pt-20 col-lg-4 col-md-4 col-sm-12 mb-20">
+                    <div class="mb-10 mt-15">
+                      <h7 class="h6 text-blue">Request Name</h7>
+                    </div>
+                    <div><input class="form-control" /></div>
                   </div>
-                  <div class="h4" style="text-align: left">
-                    <h2>2020</h2>
+                  <div class="pt-20 col-lg-4 col-md-4 col-sm-12 mb-20">
+                    <div class="mb-10 mt-15">
+                      <h7 class="h6 text-blue">Type of Design</h7>
+                    </div>
+                    <div>
+                      <select class="custom-select col-12">
+                        <option selected="false">Choose...</option>
+                        <option value="Graphics" selected="true">Graphics</option>
+                        <option value="Video" selected="true">Video</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="pt-20 col-lg-4 col-md-4 col-sm-12 mb-1">
+                    <div style="display: flex; justify-content: space-between">
+                      <div class="mt-15">
+                        <h7 class="h6 text-blue" style="text-align: center"
+                          >Choose a Brand</h7
+                        >
+                      </div>
+                      <div>
+                        <button
+                          class="btn btn-danger btn-sm"
+                          style="text-align: right; float: right"
+                        >
+                          +Create Brand
+                        </button>
+                      </div>
+                    </div>
+                    <select class="custom-select col-12 mt-2">
+                      <option selected="">Choose...</option>
+                      <option value="1">Graphics</option>
+                      <option value="2">Video</option>
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="widget-data">
-                  <div class="weight-600 font-14" style="text-align: left">
-                    Deals
+            <div class="pd-20">
+              <div class="card-box mb-30">
+                <div
+                  class="pb-20"
+                  style="display: flex; justify-content: space-between"
+                >
+                  <div id="requestdescription" class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                    <h6 class="h6 text-blue">Request Description</h6>
+                    <textarea
+                      class="textarea_editor form-control border-radius-0"
+                      placeholder="Enter text ..."
+                    ></textarea>
                   </div>
-                  <div class="h4" style="text-align: left">
-                    <h2>400</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card-box height-100-p widget-style1">
-              <div class="d-flex flex-wrap align-items-center">
-                <div class="widget-data">
-                  <div class="weight-600 font-14" style="text-align: left">
-                    Campaign
-                  </div>
-                  <div class="h4" style="text-align: left">
-                    <h2>350</h2>
+                  <div id="text4design" class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                    <h6 class="h6 text-blue">Text for Design</h6>
+                    <ul class="wysihtml5-toolbar">
+                      <li class="dropdown"><a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-font"></i>&nbsp;<span class="current-font">Normal text</span>&nbsp;<b class="caret"></b></a><ul class="dropdown-menu"><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="div" href="javascript:;" unselectable="on">Normal text</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" href="javascript:;" unselectable="on">Heading 1</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" href="javascript:;" unselectable="on">Heading 2</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3" href="javascript:;" unselectable="on">Heading 3</a></li></ul></li><li><div class="btn-group"><a class="btn" data-wysihtml5-command="bold" title="CTRL+B" href="javascript:;" unselectable="on">Bold</a><a class="btn" data-wysihtml5-command="italic" title="CTRL+I" href="javascript:;" unselectable="on">Italic</a><a class="btn" data-wysihtml5-command="underline" title="CTRL+U" href="javascript:;" unselectable="on">Underline</a></div></li><li><div class="btn-group"><a class="btn" data-wysihtml5-command="insertUnorderedList" title="Unordered list" href="javascript:;" unselectable="on"><i class="fa fa-list"></i></a><a class="btn" data-wysihtml5-command="insertOrderedList" title="Ordered list" href="javascript:;" unselectable="on"><i class="fa fa-th-list"></i></a><a class="btn" data-wysihtml5-command="Outdent" title="Outdent" href="javascript:;" unselectable="on"><i class="fa fa-outdent"></i></a><a class="btn" data-wysihtml5-command="Indent" title="Indent" href="javascript:;" unselectable="on"><i class="fa fa-indent"></i></a></div></li><li><div class="btn-group"><a class="btn" data-wysihtml5-action="change_view" title="Edit HTML" href="javascript:;" unselectable="on"><i class="fa fa-pencil"></i></a></div></li><li><div class="bootstrap-wysihtml5-insert-link-modal modal fade bs-example-modal-lg"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="close" data-dismiss="modal"></a><h3>Insert link</h3></div><div class="modal-body"><div class="form-group"><input value="http://" class="bootstrap-wysihtml5-insert-link-url form-control" type="text"></div></div><div class="modal-footer"><a href="#" class="btn btn-inverse" data-dismiss="modal">Cancel</a><a href="#" class="btn btn-primary" data-dismiss="modal">Insert link</a></div></div></div></div><a class="btn" data-wysihtml5-command="createLink" title="Insert link" href="javascript:;" unselectable="on"><i class="fa fa-link"></i></a></li><li><div class="bootstrap-wysihtml5-insert-image-modal modal fade bs-example-modal-lg" style="display: none;" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><a class="close" data-dismiss="modal"></a><h3>Insert image</h3></div><div class="modal-body"><div class="form-group"><input value="http://" class="bootstrap-wysihtml5-insert-image-url  m-wrap large form-control" type="text"></div></div><div class="modal-footer"><a href="#" class="btn" data-dismiss="modal">Cancel</a><a href="#" class="btn  green btn-primary" data-dismiss="modal">Insert image</a></div></div></div></div><a class="btn" data-wysihtml5-command="insertImage" title="Insert image" href="javascript:;" unselectable="on"><i class="fa fa-image "></i></a></li>
+                    </ul>
+                    <textarea class="textarea_editor form-control border-radius-0" placeholder="Enter text ..."></textarea>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-6 mb-30">
-            <div class="card-box height-100-p pd-20">
-              <h2 class="h4 mb-20">Open Graphic Request</h2>
-
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Due On</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row">1</td>
-                    <td scope="row">1</td>
-                    <td scope="row">1</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="pd-20">
+              <div class="card-box mb-30">
+                <div
+                  class="pb-20"
+                  style="display: flex; justify-content: space-betweena"
+                >
+                  <div class="pt-20 col-lg-3 col-md-3 col-sm-12 mb-30">
+                    <h7 class="h6 text-blue mb-20">Size(s) Needed</h7>
+                    <input
+                      class="form-control"
+                      placeholder="E.g. 1080x1080, 16x9, etc"
+                    />
+                  </div>
+                  <div class=" pt-20 col-lg-3 col-md-3 col-sm-12 mb-30">
+                    <h7 class="h6 text-blue mb-20">Preferred File Type(s)</h7>
+                    <input
+                      class="form-control"
+                      placeholder="E.g. JPG, PNG, PDF, etc"
+                    />
+                  </div>
+                  <div class="pt-20 col-lg-3 col-md-3 col-sm-12 mb-30">
+                    <h7 class="h6 text-blue mb-20">Priority</h7>
+                    <select class="custom-select col-12">
+                      <option selected="">Choose...</option>
+                      <option value="1">High</option>
+                      <option value="2">Middle</option>
+                      <option value="2">Low</option>
+                    </select>
+                  </div>
+                  <div class="pt-20 col-lg-3 col-md-3 col-sm-12 mb-30">
+                    <h7 class="h6 text-blue mb-20">Preferred Designer(s)</h7>
+                    <input
+                      class="form-control"
+                      placeholder="Select preferred desubger(s)"
+                    />
+                    <h7 style="font-style: italic"
+                      >** You can configure preferred
+                    </h7>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-xl-6 mb-30">
-            <div class="card-box height-100-p pd-20">
-              <h2 class="h4 mb-20">Open Video Requests</h2>
-
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Due On</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row">1</td>
-                    <td scope="row">1</td>
-                    <td scope="row">1</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div
+              class="pd-20"
+              style="display: flex; justify-content: space-betweena"
+            >
+              <div class="pd-ltr-20 col-lg-6 col-md-6 col-sm-12 xs-pd-20-10">
+                <div class="min-height-200px">
+                  <div class="pd-20 card-box mb-30">
+                    <div class="clearfix mb-20">
+                      <div class="pull-left">
+                        <h4 class="text-blue h4">Dropzone</h4>
+                      </div>
+                    </div>
+                    <form class="dropzone dz-clickable" action="#" id="my-awesome-dropzone">
+                      <div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
+                    <div
+                      style="display: flex; justify-content: space-between"
+                      class="mb-30 mt-2"
+                    >
+                      <input
+                        class="form-control"
+                        placeholder="Enter a Link"
+                      /><button class="btn btn-danger btn-sm">ADD</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pd-ltr-20 xs-pd-20-10 col-lg-6 col-md-6 col-sm-12">
+                <div class="min-height-200px">
+                  <div class="pd-20 card-box mb-30">
+                    <div class="clearfix mb-20">
+                      <div class="pull-left">
+                        <h4 class="text-blue h4">Dropzone</h4>
+                      </div>
+                    </div>
+                    <form class="dropzone" action="#" id="my-awesome-dropzone12">
+                      <div class="fallback">
+                        <input type="file" name="file1" />
+                      </div>
+                    </form>
+                    <div
+                      style="display: flex; justify-content: space-between"
+                      class="mb-30 mt-2"
+                    >
+                      <input
+                        class="form-control"
+                        placeholder="Enter a Link"
+                      /><button class="btn btn-danger btn-sm">ADD</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            
           </div>
         </div>
       </div>
     </div>
+    <div class="pd-10" style="display: flex;position: fixed;justify-content: right;bottom:16px;background-color: #ddd;width: 100%;">
+      <div>
+        <button class="btn btn-secondary">Save As Draft</button>
+        <button class="btn btn-danger">Submit</button>
+      </div>
+    </div>
     <!-- js -->
-    <script src="vendors/scripts/core.js"></script>
-    <script src="vendors/scripts/script.min.js"></script>
-    <script src="vendors/scripts/process.js"></script>
-    <script src="vendors/scripts/layout-settings.js"></script>
+    
     <!-- <script src="src/plugins/apexcharts/apexcharts.min.js"></script> -->
     <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="vendors/scripts/dashboard.js"></script>
+    <script src="src/plugins/dropzone/src/dropzone.js"></script>
+
+    <script src="vendors/scripts/core.js"></script>
+    <script src="vendors/scripts/script.min.js"></script>
+    <script src="vendors/scripts/process.js"></script>
+    <script src="vendors/scripts/layout-settings.js"></script>
   </body>
 </html>
 <script>

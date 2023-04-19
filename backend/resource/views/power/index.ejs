@@ -47,7 +47,6 @@
       type="text/css"
       href="src/plugins/datatables/css/dataTables.bootstrap4.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
     <link
       rel="stylesheet"
       type="text/css"
@@ -71,31 +70,16 @@
     </script>
   </head>
   <body>
-    <div class="">
-      <div class="-box">
-        <div class="loader-logo">
-          <img src="vendors/images/deskapp-logo.svg" alt="" />
-        </div>
-        <div class="loader-progress" id="progress_div">
-          <div class="bar" id="bar1"></div>
-        </div>
-        <div class="percent" id="percent1">0%</div>
-        <div class="loading-text">Loading...</div>
-      </div>
-    </div>
-
     <div class="header">
       <div class="header-left">  
+        <div class="menu-icon dw dw-menu"></div>
       </div>
       <div class="header-right">
         <div class="dashboard-setting user-notification" style="margin-top: -8px;">
           <div>
-            <input
-              type="button"
-              value="New Request"
-              class="btn btn-primary"
-              href="./request.html"
-            />
+            <a href="./request/create">
+              <div class="btn btn-primary">New Request</div>
+            </a>
           </div>
         </div>
         <div class="user-notification">
@@ -313,6 +297,11 @@
             </div>
           </div>
         </div>
+        <div class="github-link">
+          <a href="https://github.com/dropways/deskapp" target="_blank"
+            ><img src="vendors/images/github.svg" alt=""
+          /></a>
+        </div>
       </div>
     </div>
 
@@ -515,11 +504,11 @@
                 ><span class="mtext">Requests</span>
               </a>
               <ul class="submenu">
-                <li><a href="request.html">Create</a></li>
-                <li><a href="create-request.html">Open</a></li>
-                <li><a href="create-request.html">Pending Review</a></li>
-                <li><a href="create-request.html">Completed</a></li>
-                <li><a href="create-request.html">Drafts</a></li>
+                <li><a href="request/create">Create</a></li>
+                <li><a href="request-details.html">Open</a></li>
+                <li><a href="request-details.html">Pending Review</a></li>
+                <li><a href="request-details.html">Completed</a></li>
+                <li><a href="request-details.html">Drafts</a></li>
               </ul>
             </li>
             <li>
@@ -565,233 +554,96 @@
     <div class="mobile-menu-overlay"></div>
 
     <div class="main-container">
-      <div class="card-box mb-30">
-        <div class="pd-20">
-          <h4 class="text-blue h4">Users</h4>
-          <a
-            type="button"
-            href="#"
-            data-toggle="modal"
-            data-target="#addNewModal"
-            class="btn btn-primary"
-            style="float: right"
-            >Add New</a
-          >
-        </div>
-        <!--add new button Modal-->
-        <div
-          class="modal fade"
-          id="addNewModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="myLargeModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="pd-20 mb-15">
-                  <h6
-                    class="modal-title"
-                    id="myLargeModalLabel"
-                    style="text-align: center"
-                  >
-                    Create
-                  </h6>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-hidden="true"
-                  >
-                    ×
-                  </button>
+      <div class="pd-ltr-20">
+        <div class="row">
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="widget-data">
+                  <div class="weight-600 font-14" style="text-align: left">
+                    Contact
+                  </div>
+                  <div class="h4" style="text-align: left">
+                    <h2>2020</h2>
+                  </div>
                 </div>
-                <div class="pd-20 mb-15">
-                  <img />
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="widget-data">
+                  <div class="weight-600 font-14" style="text-align: left">
+                    Deals
+                  </div>
+                  <div class="h4" style="text-align: left">
+                    <h2>400</h2>
+                  </div>
                 </div>
-                <div class="pd-10 mb-10">
-                  <h6
-                    class="modal-title"
-                    id="myLargeModalLabel"
-                    style="text-align: center"
-                  >
-                    Select the role which you would like to create
-                  </h6>
-                  <div style="text-align: center" class="pd-10">
-                    <a
-                      href="#"
-                      type="button"
-                      class="btn btn-primary btn-block"
-                      style="text-align: center; width: 70"
-                      data-target="#createAdmin"
-                      data-toggle="modal"
-                    >
-                      Admin
-                    </a>
-                    <a
-                      href="#"
-                      type="button"
-                      class="btn btn-primary btn-block"
-                      style="text-align: center; width: 70"
-                      data-target="#createColloarbrator"
-                      data-toggle="modal"
-                    >
-                      Colloabrator
-                    </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 mb-30">
+            <div class="card-box height-100-p widget-style1">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="widget-data">
+                  <div class="weight-600 font-14" style="text-align: left">
+                    Campaign
+                  </div>
+                  <div class="h4" style="text-align: left">
+                    <h2>350</h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!--add new button Modal End-->
-        <!-- create colloabrator modal-->
-        <div
-          class="modal fade bs-example-modal-lg"
-          id="createColloarbrator"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="myLargeModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="pd-20 modal-body mb-25">
-                <h6 style="text-align: center" class="mb-20">
-                  Create Collaborator
-                </h6>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Name</h7>
-                    <input class="form-control" />
-                  </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Email</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Projects</h7>
-                    <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput">
-                  </div>
-                </div>
+        <div class="row">
+          <div class="col-xl-6 mb-30">
+            <div class="card-box height-100-p pd-20">
+              <h2 class="h4 mb-20">Open Graphic Request</h2>
 
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Timezone</h7>
-                    <input
-                      class="form-control time-picker-default td-input"
-                      placeholder="time"
-                      type="text"
-                      readonly=""
-                    />
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Assigned Requests</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Assigned brands</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Password</h7>
-                    <input class="form-control" />
-                  </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Confirm Password</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
-              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </div>
-        <!--create collobrate modal end-->
-        <!--create Admin modal-->
-        <div
-          class="modal fade bs-example-modal-lg"
-          id="createAdmin"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="myLargeModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="pd-20 modal-body mb-25">
-                <h6 style="text-align: center" class="mb-20">Create Admin</h6>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Name</h7>
-                    <input class="form-control" />
-                  </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Email</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Projects</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
+          <div class="col-xl-6 mb-30">
+            <div class="card-box height-100-p pd-20">
+              <h2 class="h4 mb-20">Open Video Requests</h2>
 
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Timezone</h7>
-                    <input
-                      class="form-control time-picker-default td-input"
-                      placeholder="time"
-                      type="text"
-                      readonly=""
-                    />
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Password</h7>
-                    <input class="form-control" />
-                  </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Confirm Password</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
-              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                    <td scope="row">1</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </div>
-        <!--create Admin modal End-->
-        <div class="pb-20">
-          <table class="data-table table hover multiple-select-row nowrap">
-            <thead>
-              <tr>
-                <th class="table-plus datatable-nosort">Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Created On</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="table-plus">Gloria F. Mead</td>
-                <td>25</td>
-                <td>Sagittarius</td>
-                <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                <td>29-03-2018</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
@@ -806,7 +658,6 @@
     <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="vendors/scripts/dashboard.js"></script>
-    <script src="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
   </body>
 </html>
 <script>
