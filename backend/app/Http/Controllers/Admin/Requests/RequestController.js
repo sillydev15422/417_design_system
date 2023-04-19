@@ -4,10 +4,9 @@ const { validationResult } = require('express-validator');
 exports.index = async (req, resp, next) => {
     await db.Request.findAll()
     .then((result) => {
-        resp.render('dashboard/admin/role/index',{
-            roleList: result,
+        resp.render('power/request',{
             pageTitle: 'Requests'
-        });        
+        });      
     })
     .catch(error => {
         throw new Error(error);
@@ -15,12 +14,13 @@ exports.index = async (req, resp, next) => {
 } 
 
 exports.create = (req, resp) =>{
-    resp.render('dashboard/admin/role/create',{
+    resp.render('power/request',{
         pageTitle: 'Requests'
     });
 }
 
 exports.edit = async (req, resp, next) =>{
+    resp.render('power/request-details');
     let requests = await db.Request.findAll()
                 .then( (requests) =>{
                     return requests;
