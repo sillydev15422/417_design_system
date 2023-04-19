@@ -52,6 +52,12 @@
       type="text/css"
       href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/dropzone/src/dropzone.css"
+    />
+
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -70,19 +76,6 @@
     </script>
   </head>
   <body>
-    <div class="pre-loader">
-      <div class="pre-loader-box">
-        <div class="loader-logo">
-          <img src="vendors/images/deskapp-logo.svg" alt="" />
-        </div>
-        <div class="loader-progress" id="progress_div">
-          <div class="bar" id="bar1"></div>
-        </div>
-        <div class="percent" id="percent1">0%</div>
-        <div class="loading-text">Loading...</div>
-      </div>
-    </div>
-
     <div class="header">
       <div class="header-left">
         <div class="menu-icon dw dw-menu"></div>
@@ -706,7 +699,7 @@
                                       display: flex;
                                       justify-content: space-between;
                                     "
-                                    class="mb-30"
+                                    class="mb-30 mt-2"
                                   >
                                     <input
                                       class="form-control"
@@ -773,6 +766,8 @@
     <script src="vendors/scripts/script.min.js"></script>
     <script src="vendors/scripts/process.js"></script>
     <script src="vendors/scripts/layout-settings.js"></script>
+    <script src="src/plugins/dropzone/src/dropzone.js"></script>
+
     <!-- <script src="src/plugins/apexcharts/apexcharts.min.js"></script> -->
     <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>

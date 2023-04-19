@@ -53,7 +53,11 @@
       href="src/plugins/datatables/css/responsive.bootstrap4.min.css"
     />
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css" />
-
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/dropzone/src/dropzone.css"
+    />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -70,8 +74,8 @@
     </script>
   </head>
   <body>
-    <div class="pre-loader">
-      <div class="pre-loader-box">
+    <!-- <div class="">
+      <div class="-box">
         <div class="loader-logo">
           <img src="vendors/images/deskapp-logo.svg" alt="" />
         </div>
@@ -81,7 +85,7 @@
         <div class="percent" id="percent1">0%</div>
         <div class="loading-text">Loading...</div>
       </div>
-    </div>
+    </div> -->
 
     <div class="header">
       <div class="header-left">
@@ -541,39 +545,39 @@
     </div>
     <div class="mobile-menu-overlay"></div>
 
-    <div class="main-container">
+    <div class="main-container" style="padding-bottom: 100px;">
       <div class="tab">
         <ul class="nav nav-tabs customtab" role="tablist">
           <li class="nav-item">
             <a
-              class="nav-link active"
+              class="nav-link"
               data-toggle="tab"
               href="#viewAllRequests"
               role="tab"
-              aria-selected="true"
+              aria-selected="false"
               >View All Requests</a
             >
           </li>
           <li class="nav-item">
             <a
-              class="nav-link"
+              class="nav-link active"
               data-toggle="tab"
               href="#requestDetails"
               role="tab"
-              aria-selected="false"
+              aria-selected="true"
               >Request Details</a
             >
           </li>
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="viewAllRequests"
             role="tabpanel"
           >
             <div class="pd-20">123</div>
           </div>
-          <div class="tab-pane fade" id="requestDetails" role="tabpanel">
+          <div class="tab-pane fade show active" id="requestDetails" role="tabpanel">
             <div class="pd-20">
               <div class="card-box mb-30">
                 <div
@@ -619,28 +623,18 @@
                   class="pb-20"
                   style="display: flex; justify-content: space-between"
                 >
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                  <div class="html-editor pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
                     <h6 class="h6 text-blue">Request Description</h6>
                     <textarea
+                      id="e2"
                       class="textarea_editor form-control border-radius-0"
                       placeholder="Enter text ..."
                     ></textarea>
                   </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30 pd-20">
-                    <h6 class="h6 text-blue">Text for Design</h6>
-                    <input
-                      type="submit"
-                      style="float: right; display: flex"
-                      value="Save As Draft"
-                      class="btn btn-secondary btn-sm"
-                    />
-                    <input
-                      type="submit"
-                      style="float: right"
-                      value="Submit"
-                      class="btn btn-danger btn-sm"
-                    />
+                  <div class="html-editor pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                    <h6 class="h6 text-blue">Request Description</h6>
                     <textarea
+                      id="e1"
                       class="textarea_editor form-control border-radius-0"
                       placeholder="Enter text ..."
                     ></textarea>
@@ -661,7 +655,7 @@
                       placeholder="E.g. 1080x1080, 16x9, etc"
                     />
                   </div>
-                  <div class="pt-20 col-lg-3 col-md-3 col-sm-12 mb-30">
+                  <div class=" pt-20 col-lg-3 col-md-3 col-sm-12 mb-30">
                     <h7 class="h6 text-blue mb-20">Preferred File Type(s)</h7>
                     <input
                       class="form-control"
@@ -700,14 +694,11 @@
                         <h4 class="text-blue h4">Dropzone</h4>
                       </div>
                     </div>
-                    <form class="dropzone" action="#" id="my-awesome-dropzone">
-                      <div class="fallback">
-                        <input type="file" name="file" />
-                      </div>
-                    </form>
+                    <form class="dropzone dz-clickable" action="#" id="my-awesome-dropzone">
+                      <div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
                     <div
                       style="display: flex; justify-content: space-between"
-                      class="mb-30"
+                      class="mb-30 mt-2"
                     >
                       <input
                         class="form-control"
@@ -725,14 +716,14 @@
                         <h4 class="text-blue h4">Dropzone</h4>
                       </div>
                     </div>
-                    <form class="dropzone" action="#" id="my-awesome-dropzone">
+                    <form class="dropzone" action="#" id="my-awesome-dropzone12">
                       <div class="fallback">
-                        <input type="file" name="file" />
+                        <input type="file" name="file1" />
                       </div>
                     </form>
                     <div
                       style="display: flex; justify-content: space-between"
-                      class="mb-30"
+                      class="mb-30 mt-2"
                     >
                       <input
                         class="form-control"
@@ -743,25 +734,31 @@
                 </div>
               </div>
             </div>
-            <div class="pd-20" style="text-align: right">
-              <button class="btn btn-secondary">Save As Draft</button>
-              <button class="btn btn-danger">Submit</button>
-            </div>
+            
           </div>
         </div>
       </div>
     </div>
+    <div class="pd-10" style="display: flex;position: fixed;justify-content: right;bottom:16px;background-color: #ddd;width: 100%;">
+      <div>
+        <button class="btn btn-secondary">Save As Draft</button>
+        <button class="btn btn-danger">Submit</button>
+      </div>
+    </div>
     <!-- js -->
-    <script src="vendors/scripts/core.js"></script>
-    <script src="vendors/scripts/script.min.js"></script>
-    <script src="vendors/scripts/process.js"></script>
-    <script src="vendors/scripts/layout-settings.js"></script>
+    
     <!-- <script src="src/plugins/apexcharts/apexcharts.min.js"></script> -->
     <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="vendors/scripts/dashboard.js"></script>
+    <script src="src/plugins/dropzone/src/dropzone.js"></script>
+
+    <script src="vendors/scripts/core.js"></script>
+    <script src="vendors/scripts/script.min.js"></script>
+    <script src="vendors/scripts/process.js"></script>
+    <script src="vendors/scripts/layout-settings.js"></script>
   </body>
 </html>
 <script>
