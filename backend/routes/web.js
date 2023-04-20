@@ -8,7 +8,6 @@ const isLoggedIn = require('../app/Http/Middleware/isUserLoggedIn');
 const role = require('../app/Http/Middleware/validateRoleMiddleware');
 
 //Controllers
-const homeController = require('../app/Http/Controllers/HomeController');
 const loginController = require('../app/Http/Controllers/Auth/LoginController');
 const registerController = require('../app/Http/Controllers/Auth/RegisterController');
 const userController = require('../app/Http/Controllers/Admin/Users/UserController');
@@ -75,9 +74,6 @@ route.post('/register',
     ,registerController.register);
 
 
-//Auth Routes
-route.get('/home', isAuth ,homeController.home);
-
 //Admin Routes
 
 //Roles
@@ -128,12 +124,6 @@ body('password')
 .bail()    
 ,isAuth, role.validateRole("admin") ,userController.store);
 route.get('/users', isAuth, role.validateRole("admin"), userController.index);
-
-
-//User Routes
-
-//Home Page routes
-route.get('/',homeController.welcome);
 
 
 module.exports = route;

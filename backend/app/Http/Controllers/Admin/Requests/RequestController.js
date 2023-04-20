@@ -4,48 +4,63 @@ const { validationResult } = require('express-validator');
 exports.index = async (req, resp, next) => {
     await db.Request.findAll()
     .then((result) => {
-        resp.render('power/request',{
-            pageTitle: 'Requests'
-        });      
+        resp.render('power/request');      
     })
     .catch(error => {
         throw new Error(error);
     });
 } 
 
-exports.create = (req, resp) =>{
-    resp.render('power/request',{
-        pageTitle: 'Requests'
-    });
+exports.create = async (req, resp) =>{
+    await db.Brands.findAll()
+    .then(async (brands) => {
+        let data = brands.map(e => e.dataValues);
+        let requests = await db.Request.findAll();
+        console.log(data);
+        resp.render('power/requestcreate', {
+            brands: data,
+            requests: requests
+        });
+    })
+    
 }
 
 exports.edit = async (req, resp, next) =>{
-    resp.render('power/request-details');
-    let requests = await db.Request.findAll()
-                .then( (requests) =>{
-                    return requests;
-                });
-    await db.Request.findByPk(req.params.id)
-    .then((result) => {
-        resp.render('dashboard/admin/role/edit',{
-            request: result,
-            requesteList: requests,
-            pageTitle: 'Requests'
-        });  
+    let brands = await db.Brands.findAll();
+    await db.Request.findAll({ where: req.query }).then(requests => {
+        resp.render('power/requestdetails',{
+            requests: req.query.id ? [requests[0].dataValues] : requests.map(e => e.dataValues),
+            ...req.query,
+            type: req.query.id ? true : false,
+            brands: brands
+        });
     })
-    .catch(() => {
-        throw new Error(error);
+    .catch((err) => {
+        throw new Error(err);
     });
 }
 
 exports.store = (req, resp, next) =>{
+    req.body.status = "open";
     db.Request.create(req.body)
     .then(() => {
-        req.flash('success', `New Role added ${ req.body.name } successfully!`);
-        resp.status(200).redirect('/roles');
+        console.log('success', `New Role added ${ req.body.name } successfully!`);
+        resp.status(200).json("Created Successfully")
     })
-    .catch(() => {
-        throw new Error(error);
+    .catch((err) => {
+        return next(err);
+    });
+}
+
+exports.draft = (req, res, next) => {
+    req.body.status = "drafts";
+    db.Request.create(req.body)
+    .then(() => {
+        console.log('success', `New Role added ${ req.body.name } successfully!`);
+        resp.status(200).json("Saved as Draft Successfully")
+    })
+    .catch((err) => {
+        return next(err);
     });
 }
 

@@ -22,7 +22,7 @@ exports.create = (req, resp, next) =>{
 
 exports.edit = async (req, resp, next) =>{
     let requests = await db.Brand.findAll()
-                .then( (brands) =>{
+                .then((brands) =>{
                     return brands;
                 });
     await db.Brand.findByPk(req.params.id)

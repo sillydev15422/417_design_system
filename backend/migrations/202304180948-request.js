@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      brand: {
+      BrandId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
@@ -30,7 +30,7 @@ module.exports = {
       },
       size: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       description: {
         allowNull: false,
@@ -53,6 +53,14 @@ module.exports = {
         type: Sequelize.STRING
       },
       collaborator: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      status: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      position: {
         allowNull: false,
         type: Sequelize.STRING
       },

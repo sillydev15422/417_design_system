@@ -10,15 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Request.hasOne(models.Brand, {
-        foreignKey: "brand"
-      });
+      models.Request.belongsTo(models.Brands);
     }
   }
   Request.init({
     name: DataTypes.STRING,
     type: DataTypes.STRING,
-    brand: DataTypes.INTEGER,
+    BrandId: DataTypes.INTEGER,
     description: DataTypes.STRING,
     textdesign: DataTypes.STRING,
     size: DataTypes.STRING,
@@ -26,7 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     priority:  DataTypes.STRING,
     asset: DataTypes.STRING,
     example: DataTypes.STRING,
-    collaborator: DataTypes.STRING, 
+    collaborator: DataTypes.STRING,
+    status: DataTypes.STRING,
+    position: DataTypes.STRING
   }, {
     sequelize,
     timestamps: true,

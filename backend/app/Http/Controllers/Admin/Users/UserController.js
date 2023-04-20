@@ -15,12 +15,11 @@ exports.index = async (req,res,next) => {
 }
 
 exports.create = async (req, res, next) => {
-    //res.sendFile(path.join(__dirname,'../','views','user','create.html'));   
     await db.Role.findAll()
-        .then( (roles) =>{
+        .then((roles) =>{
             return roles;
         })
-        .then( (roles) =>{
+        .then((roles) =>{
             res.render('dashboard/admin/user/create',{
             pageTitle: "Add User",
             errorMessage: null,
