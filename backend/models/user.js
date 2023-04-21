@@ -14,22 +14,25 @@ module.exports = (sequelize, DataTypes) => {
         through: models.UserHasRole,
         foreignKey: 'UserId',
         otherKey: 'RoleId',
-        as: 'roles',  
+        as: 'roles',
       });
     }
   }
-  User.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    email_verified_at: DataTypes.DATE,
-    remember_token: DataTypes.STRING
-  }, {
-    sequelize,
-    timestamps: true,
-    // createdAt: 'created_at',
-    // updatedAt: 'updated_at',
-    modelName: 'User'
-  });
+  User.init(
+    {
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      email_verified_at: DataTypes.DATE,
+      remember_token: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      timestamps: true,
+      // createdAt: 'created_at',
+      // updatedAt: 'updated_at',
+      modelName: 'User',
+    }
+  );
   return User;
 };
