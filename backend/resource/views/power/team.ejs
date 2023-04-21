@@ -47,7 +47,11 @@
       type="text/css"
       href="src/plugins/datatables/css/dataTables.bootstrap4.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css"
+    />
     <link
       rel="stylesheet"
       type="text/css"
@@ -76,7 +80,10 @@
         <div class="menu-icon dw dw-menu"></div>
       </div>
       <div class="header-right">
-        <div class="dashboard-setting user-notification" style="margin-top: -8px;">
+        <div
+          class="dashboard-setting user-notification"
+          style="margin-top: -8px"
+        >
           <div>
             <a href="./request/create">
               <div class="btn btn-primary">New Request</div>
@@ -515,8 +522,8 @@
             </li>
             <li class="dropdown">
               <a href="brands.html" class="dropdown-toggle no-arrow">
-                <span class="micon dw dw-browser2">
-                </span><span class="mtext">Brands</span>
+                <span class="micon dw dw-browser2"> </span
+                ><span class="mtext">Brands</span>
               </a>
             </li>
             <li>
@@ -659,7 +666,11 @@
                 <div style="display: flex; justify-content: space-between">
                   <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
                     <h7 class="h6 text-blue mb-20">Projects</h7>
-                    <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput">
+                    <input
+                      type="text"
+                      value="Amsterdam,Washington,Sydney,Beijing,Cairo"
+                      data-role="tagsinput"
+                    />
                   </div>
                 </div>
 
@@ -710,51 +721,69 @@
           aria-labelledby="myLargeModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="pd-20 modal-body mb-25">
-                <h6 style="text-align: center" class="mb-20">Create Admin</h6>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Name</h7>
-                    <input class="form-control" />
+          <form id="createAdmin" method="post">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="pd-20 modal-body mb-25">
+                  <h6 style="text-align: center" class="mb-20">Create Admin</h6>
+                  <div style="display: flex; justify-content: space-between">
+                    <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                      <h7 class="h6 text-blue mb-20">Name</h7>
+                      <input class="form-control" id="name" />
+                    </div>
+                    <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                      <h7 class="h6 text-blue mb-20">Email</h7>
+                      <input class="form-control" id="email" />
+                    </div>
                   </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Email</h7>
-                    <input class="form-control" />
+                  <div style="display: flex; justify-content: space-between">
+                    <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
+                      <h7 class="h6 text-blue mb-20">Projects</h7>
+                      <input class="form-control" id="projects" />
+                    </div>
                   </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Projects</h7>
-                    <input class="form-control" />
-                  </div>
-                </div>
 
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Timezone</h7>
-                    <input
-                      class="form-control time-picker-default td-input"
-                      placeholder="time"
-                      type="text"
-                      readonly=""
-                    />
+                  <div style="display: flex; justify-content: space-between">
+                    <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
+                      <h7 class="h6 text-blue mb-20">Timezone</h7>
+                      <input
+                        class="form-control time-picker-default td-input"
+                        placeholder="time"
+                        type="text"
+                        readonly=""
+                        id="timezone"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div style="display: flex; justify-content: space-between">
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Password</h7>
-                    <input class="form-control" />
+                  <div style="display: flex; justify-content: space-between">
+                    <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                      <h7 class="h6 text-blue mb-20">Password</h7>
+                      <input class="form-control" id="password" />
+                    </div>
+                    <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
+                      <h7 class="h6 text-blue mb-20">Confirm Password</h7>
+                      <input class="form-control" id="conPassword" />
+                    </div>
+                    <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30"></div>
                   </div>
-                  <div class="pt-20 col-lg-6 col-md-6 col-sm-12 mb-30">
-                    <h7 class="h6 text-blue mb-20">Confirm Password</h7>
-                    <input class="form-control" />
+                  <div style="float: right">
+                    <div>
+                      <input
+                        class="btn btn-primary"
+                        type="button"
+                        value="Cancel"
+                      />
+                      <input
+                        class="btn btn-primary"
+                        type="submit"
+                        value="Submit"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
         <!--create Admin modal End-->
         <div class="pb-20">
@@ -792,17 +821,46 @@
     <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="vendors/scripts/dashboard.js"></script>
     <script src="src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </body>
 </html>
 <script>
-  $.ajax({
-    url: 'http://localhost:3000',
-    method: 'POST',
-    contentType: 'application/json',
-    success: function (response) {
-      var tem_name = response.tem_name;
-      var tem_status = response.tem_status;
-      var tem_due_on = response.tem_due_on;
-    },
+  $('#createAdmin').submit(function (event) {
+    event.preventDefault();
+
+    var formData = {
+      user_name: $('#name').val(),
+      user_email: $('#email').val(),
+      user_projects: $('#projects').val(),
+      user_timezone: $('#timezone').val(),
+      user_password: $('#password').val(),
+    };
+
+    //   $.ajax({
+    //     url: '/user/create',
+    //     method: 'POST',
+    //     contentType: 'application/json',
+    //     data: formData,
+    //     success: function (response) {
+    //       var tem_name = response.tem_name;
+    //       var tem_status = response.tem_status;
+    //       var tem_due_on = response.tem_due_on;
+    //     },
+    //   });
+    // });
+    $.post('/user/create', formData).then((response) => {
+      console.log(response);
+    });
   });
+
+  // $.ajax({
+  //   url: 'http://localhost:3000',
+  //   method: 'POST',
+  //   contentType: 'application/json',
+  //   success: function (response) {
+  //     var tem_name = response.tem_name;
+  //     var tem_status = response.tem_status;
+  //     var tem_due_on = response.tem_due_on;
+  //   },
+  // });
 </script>
