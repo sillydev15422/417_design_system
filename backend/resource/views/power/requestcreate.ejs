@@ -734,7 +734,7 @@
                   <div class="pd-20 card-box mb-30">
                     <div class="clearfix mb-20">
                       <div class="pull-left">
-                        <h4 class="text-blue h4">Dropzone</h4>
+                        <h4 class="text-blue h4">Asset of Designer</h4>
                       </div>
                     </div>
                     <form class="dropzone dz-clickable" action="/upload" method="POST" id="my-awesome-dropzone">
@@ -756,10 +756,10 @@
                   <div class="pd-20 card-box mb-30">
                     <div class="clearfix mb-20">
                       <div class="pull-left">
-                        <h4 class="text-blue h4">Dropzone</h4>
+                        <h4 class="text-blue h4">Examples for Inspiration</h4>
                       </div>
                     </div>
-                    <form class="dropzone" action="/upload" method="POST" id="my-awesome-dropzone12">
+                    <form class="dropzone" action="/upload/Example" method="POST" id="my-awesome-dropzone12">
                       <div class="fallback">
                         <input type="file" name="file1" />
                       </div>
@@ -853,7 +853,7 @@
         data['priority'] = $('#priority').val();
         data['collaborator'] = $('#collaborator').val();
 
-        $.post("/request/store", data, function(response) {
+        $.post("/request/draft", data, function(response) {
           console.log(response);
         })
         

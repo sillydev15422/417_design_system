@@ -1,5 +1,7 @@
 const multer = require('multer');
-const upload = multer({dest:'uploads/'}).single("file");
+const upload = multer({dest:'public/uploads/'}).single("file");
+const { Op } = require("sequelize");
+const fs = require('fs');
 const db = require('../../../../models');
 
 exports.index = async (req, resp, next) => {
@@ -45,15 +47,27 @@ exports.edit = async (req, resp, next) =>{
     });
 }
 
-exports.store = (req, resp, next) =>{
-    db.Request.create(req.body)
-    .then(() => {
-        req.flash('success', `New Role added ${ req.body.name } successfully!`);
-        resp.status(200).redirect('/roles');
-    })
-    .catch(() => {
-        throw new Error(error);
-    });
+exports.down = async (req, res, next) =>{
+    let a = req.body['list[]'];
+    if(typeof a == 'string')
+        a = [a];
+    try {
+        let files = await db.Upload.findAll({
+            where: {
+                id:{
+                    [Op.in]: a
+                }
+            }
+        });
+        let upload_path = '/uploads/';
+        
+        files = files.map(e => {return { download: upload_path + e.dataValues.fakename, filename: e.dataValues.realname}; });
+        res.send(files);
+    }
+    catch(err) {
+        console.log(err);
+    }
+    
 }
 
 exports.load = (req, res, next) =>{
@@ -64,24 +78,19 @@ exports.load = (req, res, next) =>{
         db.Upload.create({
             realname: req.file.originalname,
             fakename: req.file.filename,
-            owner: 1
+            owner: 1,
+            type: req.params.type
         }).then(() => {
             res.send(req.file);
         })
     });
 }
 
-exports.delete = async (req, resp, next) =>{
-    await db.Request.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-    .then( () => {      
-        req.flash('warning', `Role deleted successfully!`);        
-        resp.status(200).redirect('/roles');
-    })
-    .catch(error => {
-        throw new Error(error);
-    })
+exports.delete = async (req, res, next) =>{
+    let file = await db.Upload.findOne({where: {id: req.params.id}});
+    fs.unlink(process.cwd() + '/public/uploads/' + file.dataValues.fakename, (err) => {
+        console.log(err);
+    });
+    await db.Upload.destroy({where: {id: req.params.id}});
+    res.send("Success Deleted");
 }

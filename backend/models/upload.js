@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Upload.init({
     realname: DataTypes.STRING,
     fakename: DataTypes.STRING,
-    owner: DataTypes.INTEGER
+    owner: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   }, {
     sequelize,
     timestamps: true,

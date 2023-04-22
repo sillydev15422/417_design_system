@@ -518,7 +518,7 @@
               </a>
             </li>
             <li class="dropdown">
-              <a href="brands.html" class="dropdown-toggle no-arrow">
+              <a href="/brands" class="dropdown-toggle no-arrow">
                 <span class="micon dw dw-browser2">
                 </span><span class="mtext">Brands</span>
               </a>
@@ -614,7 +614,7 @@
                 </thead>
                 <tbody>
                   <% requests.forEach(r => { if(r.type == 'Graphics') {%>
-                  <tr>
+                  <tr n="<%= r.id %>" style="cursor: pointer;">
                     <td scope="row"><%= r.name %></td>
                     <td scope="row"><%= r.position %></td>
                     <td scope="row">-</td>
@@ -638,7 +638,7 @@
                 </thead>
                 <tbody>
                   <% requests.forEach(r => { if(r.type == 'Video') {%>
-                    <tr>
+                    <tr n="<%= r.id %>" style="cursor: pointer;">
                       <td scope="row"><%= r.name %></td>
                       <td scope="row"><%= r.position %></td>
                       <td scope="row">-</td>
@@ -665,14 +665,7 @@
   </body>
 </html>
 <script>
-  $.ajax({
-    url: 'http://localhost:3000',
-    method: 'POST',
-    contentType: 'application/json',
-    success: function (response) {
-      var tem_name = response.tem_name;
-      var tem_status = response.tem_status;
-      var tem_due_on = response.tem_due_on;
-    },
+  $('tr').on('click', function() {
+    location.href = "editrequest?id=" + $(this).attr('n');
   });
 </script>

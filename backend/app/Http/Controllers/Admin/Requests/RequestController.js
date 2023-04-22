@@ -26,13 +26,27 @@ exports.create = async (req, resp) =>{
 }
 
 exports.edit = async (req, resp, next) =>{
+    console.log(req.query);
+    let type = req.query.id ? true : false;
+    if(type)
+        resp.cookie('request', req.query.id);
     let brands = await db.Brands.findAll();
+    let comments = type ? await db.Comment.findAll({
+        where:{
+            RequestId: req.query.id
+        }
+    }) : null;
+    let history = [];
+    if(type) history = await db.Upload.findAll({ where:{owner:req.query.id} });
+
     await db.Request.findAll({ where: req.query }).then(requests => {
         resp.render('power/requestdetails',{
             requests: req.query.id ? [requests[0].dataValues] : requests.map(e => e.dataValues),
             ...req.query,
-            type: req.query.id ? true : false,
-            brands: brands
+            type: type,
+            brands: brands,
+            history: history,
+            comments: comments
         });
     })
     .catch((err) => {

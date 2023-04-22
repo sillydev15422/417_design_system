@@ -17,6 +17,12 @@ module.exports = {
       owner: {
         type: Sequelize.INTEGER
       },
+      type: {
+        type: Sequelize.STRING
+      },
+      RequestId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

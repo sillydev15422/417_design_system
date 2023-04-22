@@ -1,25 +1,20 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = async (req,resp,next) => {
+module.exports = async (req, res, next) => {
     let accessToken = req.cookies.jwt;
     if(!accessToken){
-        await resp.clearCookie("jwt");
-        await resp.clearCookie("my-session-name");
-        await resp.clearCookie("connect.sid");
-        return resp.redirect('/login');
+        await res.clearCookie("jwt");
+        return res.redirect('/login');
     }
 
     try {
         let isAuth = jwt.verify(accessToken,'longest secreate key node admin');
         if(!isAuth.auth){
-            return resp.redirect('/login');    
+            return res.redirect('/login');    
         }
-        next();    
+        next();   
     } catch (error) {
-        await resp.clearCookie("jwt");
-        await resp.clearCookie("my-session-name");
-        await resp.clearCookie("connect.sid");
-        return resp.redirect('/login');
-        //return resp.status(400).send('Invalid token !');
+        await res.clearCookie("jwt");
+        return res.redirect('/login');
     }  
 }

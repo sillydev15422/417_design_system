@@ -1,15 +1,9 @@
 const db = require('../../../../../models');
 
-exports.index = async (req, resp, next) => {
-    await db.Brand.findAll()
-    .then((result) => {
-        resp.render('dashboard/admin/role/index',{
-            roleList: result,
-            pageTitle: 'Brands'
-        });        
-    })
-    .catch(error => {
-        throw new Error(error);
+exports.index = async (req, res, next) => {
+    let brands = await db.Brands.findAll();
+    res.render('power/brands', {
+        brands: brands
     });
 } 
 
@@ -21,36 +15,29 @@ exports.create = (req, resp, next) =>{
 }
 
 exports.edit = async (req, resp, next) =>{
-    let requests = await db.Brand.findAll()
-                .then((brands) =>{
-                    return brands;
-                });
-    await db.Brand.findByPk(req.params.id)
+    await db.BrandsfindByPk(req.params.id)
     .then((result) => {
-        resp.render('dashboard/admin/role/edit',{
-            request: result,
-            requesteList: brands,
-            pageTitle: 'Requests'
-        });  
+        resp.send(result);  
     })
-    .catch(() => {
+    .catch((error) => {
         throw new Error(error);
     });
 }
 
-exports.store = (req, resp, next) =>{
-    db.Brand.create(req.body)
-    .then(() => {
-        req.flash('success', `New Role added ${ req.body.name } successfully!`);
-        resp.status(200).redirect('/roles');
-    })
-    .catch(() => {
-        throw new Error(error);
-    });
+exports.store = async ({ body }, res, next) =>{
+    try {
+        let ok = await db.Brands.create(body);
+        res.send("Successful Created");
+    }
+    catch(err) {
+        console.log(err);
+    }
+    
+    
 }
 
 exports.update = (req, resp, next) =>{
-    db.Brand.update(req.body,{
+    db.Brands.update(req.body,{
         where: {
             id: req.params.id
         }
@@ -65,14 +52,13 @@ exports.update = (req, resp, next) =>{
 }
 
 exports.delete = async (req, resp, next) =>{
-    await db.Brand.destroy({
+    await db.Brands.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then( () => {      
-        req.flash('warning', `Role deleted successfully!`);        
-        resp.status(200).redirect('/roles');
+    .then( () => {              
+        resp.status(200).send("");
     })
     .catch(error => {
         throw new Error(error);

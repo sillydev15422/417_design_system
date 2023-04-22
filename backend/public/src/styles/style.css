@@ -2589,7 +2589,7 @@ body.IE .register-page-wrap .container{
 }
 .blog-list ul li .blog-img{
 	height: 100%;
-	min-height: 300px;
+	min-height: 200px;
 	-webkit-border-radius: 10px 0px 0px 10px;
 	-moz-border-radius: 10px 0px 0px 10px;
 	border-radius: 10px 0px 0px 10px;

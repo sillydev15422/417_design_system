@@ -11,10 +11,7 @@ class ValidateRoleMiddleware{
           return res.status(401).render('errors/401',{
             errorMessage: "401 Unauthorized Access!!"
           });
-        }        
-      // } catch (error) {
-      //    throw new Error(401);
-      // }      
+        }         
     }
   }
 }

@@ -3,9 +3,7 @@ const bcrypt = require('bcryptjs');
 const db = require("../../../../models");
 
 exports.index = (req, resp, next) =>{
-    return resp.render('front-end/auth/login',{
-        errorMessage: []
-    });
+    return resp.render('power/login');
 }
 
 exports.login = async (req,resp,next) => {  
@@ -43,7 +41,6 @@ exports.login = async (req,resp,next) => {
                 auth: true,
                 name: user.name,
                 email: user.email
-
             };
            
             let accessToken = jwt.sign(payload, 'longest secreate key node admin', {
@@ -54,7 +51,7 @@ exports.login = async (req,resp,next) => {
             // console.log("accessToken",accessToken);
             
             resp.cookie("jwt", accessToken, {secure: true, httpOnly: true/*, samesite:"lax"*/});
-            return resp.redirect('/home');
+            return resp.redirect('/');
         })
     })
     .catch(error => {

@@ -18,7 +18,7 @@ const roleController = require('../app/Http/Controllers/Admin/Roles/RoleControll
 const route = express.Router();
 
 //Auth routes
-route.get('/login', isLoggedIn, loginController.index);
+route.get('/login', loginController.index);
 
 route.post('/login', 
  body('email')
@@ -123,6 +123,7 @@ body('password')
 .withMessage('Password is minimum 5 charcters long!')
 .bail()    
 ,isAuth, role.validateRole("admin") ,userController.store);
+
 route.get('/users', isAuth, role.validateRole("admin"), userController.index);
 
 

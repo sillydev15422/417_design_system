@@ -514,12 +514,12 @@
                 ><span class="mtext">Dashboard</span>
               </a>
             </li>
-            <li class="dropdown">
+            <li class="dropdown show">
               <a href="javascript:;" class="dropdown-toggle">
                 <span class="micon dw dw-diagram"></span
                 ><span class="mtext">Requests</span>
               </a>
-              <ul class="submenu">
+              <ul class="submenu" style="display: block;">
                 <li><a href="/createrequest">Create</a></li>
                 <li><a href="/editrequest?status=open">Open</a></li>
                 <li><a href="/editrequest?status=pending">Pending Review</a></li>
@@ -534,7 +534,7 @@
               </a>
             </li>
             <li class="dropdown">
-              <a href="brands.html" class="dropdown-toggle no-arrow">
+              <a href="/brands" class="dropdown-toggle no-arrow">
                 <span class="micon dw dw-browser2">
                 </span><span class="mtext">Brands</span>
               </a>
@@ -649,6 +649,7 @@
         </div>
       </div>
       <!--add Mark complete Modal End-->
+      
       <div class="tab">
         <ul class="nav nav-tabs customtab" role="tablist">
           <li class="nav-item">
@@ -673,6 +674,7 @@
           </li>
         </ul>
         <div class="tab-content">
+          <% if(type == false)  { %>
           <div
             class="tab-pane fade <% if(!type) {%>show active<% } %>"
             id="viewAllRequests"
@@ -690,19 +692,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% requests.forEach(r => { %>
+                  <% requests ? requests.forEach(r => { %>
                   <tr n="<%= r.id %>" style="cursor: pointer;">
                     <td scope="row"><%= r.name %></td>
-                    <td scope="row"><%= r.type %></td>
+                    <td scope="row"><span class="badge bg-info"><%= r.type %></span></td>
                     <td scope="row"><%= r.priority %></td>
                     <td scope="row"><%= r.position %></td>
                     <td scope="row">-</td>
                   </tr>
-                  <%  }) %>
+                  <%  }) : "" %>
                 </tbody>
               </table>
             </div>
           </div>
+          <% } else { %>
           <div class="tab-pane fade <% if(type) {%>show active<% } %>" id="requestDetails" role="tabpanel">
             <div
               class="pd-20 row"
@@ -722,6 +725,7 @@
                             type="text"
                             placeholder="Text fonts"
                             id="name"
+                            value="<%= requests[0].name %>"
                           />
                         </div>
                       </div>
@@ -731,8 +735,8 @@
                         >
                         <div class="col-sm-12 col-md-9">
                           <select class="custom-select col-12">
-                            <option value="Graphics">Grapics</option>
-                            <option value="Video">Video</option>
+                            <option value="Graphics" <% if(requests[0].type == "Graphics") { %>selected<% } %>>Grapics</option>
+                            <option value="Video" <% if(requests[0].type == "Video") { %>selected<% } %>>Video</option>
                           </select>
                         </div>
                       </div>
@@ -741,10 +745,10 @@
                           >Priority</label
                         >
                         <div class="col-sm-12 col-md-9">
-                          <select class="custom-select col-12">
-                            <option value="High"><span>High</option>
-                            <option value="Middle">Middle</option>
-                            <option value="Low">Low</option>
+                          <select class="custom-select col-12" id="priority" default="Middle">
+                            <option value="High" <% if(requests[0].priority == "High") { %>selected<% } %>>High</option>
+                            <option value="Middle" <% if(requests[0].priority == "Middle") { %>selected<% } %>>Middle</option>
+                            <option value="Low" <% if(requests[0].priority == "Low") { %>selected<% } %>>Low</option>
                           </select>
                         </div>
                       </div>
@@ -756,7 +760,7 @@
                         <div class="col-sm-12 col-md-8">
                           <select class="custom-select col-12">
                             <% brands.forEach(brand => { %>
-                              <option value="<%= brand.name %>"><%= brand.name %></option>
+                              <option value="<%= brand.name %>" <% if(brand.id == requests[0].BrandId) { %>selected<%}%>><%= brand.name %></option>
                             <% }) %>
                           </select>
                         </div>
@@ -780,7 +784,7 @@
                           <input
                             class="form-control"
                             type="text"
-                            placeholder="Text fonts"
+                            placeholder="Due on"
                           />
                         </div>
                       </div>
@@ -820,7 +824,7 @@
                       class="textarea_editor form-control border-radius-0"
                       placeholder="Enter text ..."
                       id="description"
-                    ></textarea>
+                    ><%= requests[0].description %></textarea>
                   </div>
                   <div class="pt-20 col-lg-12 col-md-12 col-sm-12 mb-30">
                     <h6 class="h6 text-blue">Text for Design</h6>
@@ -828,7 +832,7 @@
                       class="textarea_editor form-control border-radius-0"
                       placeholder="Enter text ..."
                       id="textdesign"
-                    ></textarea>
+                    ><%= requests[0].textdesign %></textarea>
                   </div>
                 </div>
                 <div class="pd-20 card-box mb-30">
@@ -836,12 +840,13 @@
                     <div class="pd-20 mb-30">
                       <div class="clearfix mb-20">
                         <div class="pull-left">
-                          <h4 class="text-blue h4">Dropzone</h4>
+                          <h4 class="text-blue h4">Asset of Designer</h4>
                         </div>
                       </div>
                       <form
                         class="dropzone"
-                        action="#"
+                        action="/upload/Design"
+                        method="post"
                         id="my-awesome-dropzone"
                       >
                         <div class="fallback">
@@ -858,32 +863,22 @@
                         /><button class="btn btn-danger btn-sm">&nbsp;+&nbsp;</button>
                       </div>
                       <div class="pd-10 mb-10">
-                        <button class="btn btn-outline-secondary pd-10">
+                        <button class="btn btn-outline-secondary pd-10" onclick="downloadAll('history')">
                           Download All
                         </button>
-                        <button class="btn btn-outline-secondary pd-10">
+                        <button class="btn btn-outline-secondary pd-10" onclick="download('history')">
                           Download Selected
                         </button>
                       </div>
-                      <div class="pd-10 mb-10">
-                        <div class="row">
-                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
-                          <div class="col-md-7 text-flow col-sm-7">f763e780-7818-11eb-8384-18b127135423.png</div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
-                          <div class="col-md-7  col-sm-7 text-flow">f763e780-7818-11eb-8384-18b127135423.png</div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
-                          <div class="col-md-7 col-sm-7 text-flow">f763e780-7818-11eb-8384-18b127135423.png</div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
-                        </div>
+                      <div class="pd-10 mb-10" id="history">
+                        <% history ? history.forEach(e => { if(e.type == "Design") {%>
+                          <div class="row">
+                            <div class="col-md-1 col-sm-1"><input type="checkbox" class="check" id="<%= e.id %>"/></div>
+                            <div class="col-md-7 text-flow col-sm-7"><%= e.realname %></div>
+                            <div class="col-md-1 col-sm-1" onclick="let self = $(this); self.parent().find('input').attr('checked', true); $(self).children('i').removeClass('ion-trash-a').addClass('ion-refresh'); $.post('/delete/<%= e.id %>').then((res) => { setTimeout(function(){ self.parent().remove();},500); })"><i class="icon-copy ion-trash-a" style="cursor: pointer;"></i></div>
+                            <div class="col-md-1 col-sm-1"><a path="/uploads/<%= e.fakename %>" filename="<%= e.realname %>" onclick="download_files([{download: $(this).attr('path'), filename: $(this).attr('filename')}])"><i class="icon-copy ion-archive" style="cursor: pointer;"></a></i></div>
+                          </div>
+                        <% } }) : "" %>
                       </div>
                     </div>
                   </div>
@@ -893,12 +888,13 @@
                     <div class="pd-20 mb-30">
                       <div class="clearfix mb-20">
                         <div class="pull-left">
-                          <h4 class="text-blue h4">Dropzone</h4>
+                          <h4 class="text-blue h4">Examples for Inspiration</h4>
                         </div>
                       </div>
                       <form
                         class="dropzone"
-                        action="#"
+                        action="/upload/Example"
+                        method="post"
                         id="my-awesome-dropzone"
                       >
                         <div class="fallback">
@@ -915,20 +911,22 @@
                         /><button class="btn btn-danger btn-sm">&nbsp;+&nbsp;</button>
                       </div>
                       <div class="pd-10 mb-10">
-                        <button class="btn btn-outline-secondary pd-10 col-sm-12 col-md-6 col-lg-4">
+                        <button class="btn btn-outline-secondary pd-10" onclick="downloadAll('example')">
                           Download All
                         </button>
-                        <button class="btn btn-outline-secondary pd-10 col-sm-12 col-md-6 col-lg-4">
+                        <button class="btn btn-outline-secondary pd-10" onclick="download('example')">
                           Download Selected
                         </button>
                       </div>
-                      <div class="pd-10 mb-10">
-                        <div class="row">
-                          <div class="col-md-1 col-sm-1"><input type="checkbox" /></div>
-                          <div class="col-md-7 text-flow col-sm-7">f763e780-7818-11eb-8384-18b127135423.png</div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-archive"></i></div>
-                          <div class="col-md-1 col-sm-1"><i class="icon-copy ion-trash-a"></i></div>
-                        </div>
+                      <div class="pd-10 mb-10" id="example">
+                        <% history ? history.forEach(e => { if(e.type == "Example") {%>
+                          <div class="row">
+                            <div class="col-md-1 col-sm-1"><input type="checkbox" class="check" id="<%= e.id %>"/></div>
+                            <div class="col-md-7 text-flow col-sm-7"><%= e.realname %></div>
+                            <div class="col-md-1 col-sm-1" onclick="let e = $(this); e.parent().find('input').attr('checked', true); $(e).children('i').removeClass('ion-trash-a').addClass('ion-refresh'); $.post('/delete/<%= e.id %>').then((res) => { setTimeout(function(){ e.parent().remove();},500); })"><i class="icon-copy ion-trash-a" style="cursor: pointer;"></i></div>
+                            <div class="col-md-1 col-sm-1"><a path="/uploads/<%= e.fakename %>" filename="<%= e.realname %>" onclick="download_files([{download: $(this).attr('path'), filename: $(this).attr('filename')}])"><i class="icon-copy ion-archive" style="cursor: pointer;"></a></i></div>
+                          </div>
+                        <% } }) : "" %>
                       </div>
                     </div>
                   </div>
@@ -937,54 +935,36 @@
               <div class="pd-ltr-20 xs-pd-20-10 col-lg-6 col-md-6 col-sm-12">
                 <div class="pd-20 card-box mb-30 blog-list">
                   <ul>
+                    <% comments.forEach(e => {%>
                     <li>
 											<div class="row no-gutters">
 												<div class="col-lg-4 col-md-12 col-sm-12">
 													<div class="blog-img">
-														<img src="vendors/images/1.jpg" alt="" class="bg_img">
+														<img src="vendors/images/1.jpg" alt="" class="bg_img" style="min-height: 0px;">
 													</div>
 												</div>
 												<div class="col-lg-8 col-md-12 col-sm-12">
 													<div class="blog-caption">
-														<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+														<h4><a href="#"><%= e.title %></a></h4>
 														<div class="blog-by">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+															<p><%= e.content %></p>
 															<div class="pt-10">
-																<a href="#" class="btn btn-outline-primary">Read More</a>
+																<a href="#" class="btn btn-outline-primary"><%= e.extra ? e.extra : "Read More" %></a>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</li>
-                    <li>
-											<div class="row no-gutters">
-												<div class="col-lg-4 col-md-12 col-sm-12">
-													<div class="blog-img">
-														<img src="vendors/images/1.jpg" alt="" class="bg_img">
-													</div>
-												</div>
-												<div class="col-lg-8 col-md-12 col-sm-12">
-													<div class="blog-caption">
-														<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
-														<div class="blog-by">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-															<div class="pt-10">
-																<a href="#" class="btn btn-outline-primary">Read More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</li>
+                    <% }) %>
                     <li>
                       <div class="chat-footer">
                         <div class="file-upload"><a href="#"><i class="fa fa-paperclip"></i></a></div>
                         <div class="chat_text_area">
-                          <textarea placeholder="Type your message…"></textarea>
+                          <textarea placeholder="Type your message…" id="message"></textarea>
                         </div>
                         <div class="chat_send">
-                          <button class="btn btn-link" type="submit"><i class="icon-copy ion-paper-airplane"></i></button>
+                          <button class="btn btn-link" type="submit" onclick="sendMessage()" style="border: 1px solid green;"><i class="icon-copy ion-paper-airplane"></i></button>
                         </div>
                       </div>
                     </li>
@@ -993,6 +973,7 @@
               </div>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
@@ -1009,9 +990,65 @@
     <script src="vendors/scripts/dashboard.js"></script>
     <script src="src/plugins/dropzone/src/dropzone.js"></script>
     <script>
+      function download_files(files) {
+        function download_next(i) {
+          if (i >= files.length) {
+            return;
+          }
+          var a = document.createElement('a');
+          a.href = files[i].download;
+          a.target = '_parent';
+          // Use a.download if available, it prevents plugins from opening.
+          if ('download' in a) {
+            a.download = files[i].filename;
+          }
+          // Add a to the doc for click to work.
+          (document.body || document.documentElement).appendChild(a);
+          if (a.click) {
+            a.click(); // The click method is supported by most browsers.
+          } else {
+            $(a).click(); // Backup using jquery
+          }
+          // Delete the temporary link.
+          a.parentNode.removeChild(a);
+          // Download the next file with a small timeout. The timeout is necessary
+          // for IE, which will otherwise only download the first file.
+          setTimeout(function() {
+            download_next(i + 1);
+          }, 500);
+        }
+        // Initiate the first download.
+        download_next(0);
+      }
+    </script>
+    <script src="https://greasyfork.org/scripts/2350-filesaver-js/code/filesaverjs.js?version=6255"></script>
+    <script>
+      
       $('tr').on('click', function() {
         location.search = "?id=" + $(this).attr('n');
-      })
+      });
+
+      function downloadAll(type) {
+        $("#"+ type +" input").attr("checked", true);
+        setTimeout(function() { download(type) }, 100);
+      };
+
+      function download(type) {
+        let checked = $('#'+ type +' input:checked');
+        let data = [];
+        for(let i = 0; i < checked.length; i++)
+            data.push($(checked[i]).attr('id'));
+
+        $.post('/multidownload', {list: data}, (res) => {
+          download_files(res);
+        })
+      }
+
+      function sendMessage() {
+        $.post('/comment/create', {data: 123}, (res) => {
+
+        });
+      }
     </script>
   </body>
 </html>
